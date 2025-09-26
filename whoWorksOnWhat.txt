@@ -4,7 +4,7 @@ Tambah Item:
 Daftar Membership:
 List Membership:
 Dashboard(Index):
-Print:
-Checkout:
+Print: Jansen
+Checkout: Jansen
 Worker Management:
 History: Ignatius
