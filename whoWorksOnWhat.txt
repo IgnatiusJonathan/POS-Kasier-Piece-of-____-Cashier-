@@ -1,0 +1,10 @@
+Login:
+Inventory: Ignatius
+Tambah Item:
+Daftar Membership:
+List Membership:
+Dashboard(Index):
+Print:
+Checkout:
+Worker Management:
+History: Ignatius
