@@ -1,7 +1,7 @@
-Login:
+Login: Nero
 Inventory: Ignatius
 Tambah Item:
-Daftar Membership:
+Daftar Membership: Nero
 List Membership:
 Dashboard(Index):
 Print: Jansen
