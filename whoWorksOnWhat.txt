@@ -1,10 +1,10 @@
-Login:
+Login: Nero
 Inventory: Ignatius
-Tambah Item:
-Daftar Membership:
-List Membership:
-Dashboard(Index):
+Tambah Item: Filip
+Daftar Membership: Nero
+List Membership: Cohen
+Dashboard(Index): Cohen
 Print: Jansen
 Checkout: Jansen
-Worker Management:
+Worker Management: Filip
 History: Ignatius
