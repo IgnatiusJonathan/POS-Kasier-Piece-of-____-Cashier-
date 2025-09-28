@@ -1,6 +1,0 @@
-.form-container {
-    display: flex; /* Mengaktifkan mode Flexbox */
-    flex-direction: column; /* Mengatur item agar tersusun ke bawah */
-    gap: 30px; /* Memberi jarak yang SAMA antar item */
-    width: 250px; /* (Opsional) Mengatur lebar form */
-}
