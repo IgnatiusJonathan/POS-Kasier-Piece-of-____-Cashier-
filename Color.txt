@@ -1,0 +1,3 @@
+#B21011 Warna maroon primary (Seharusnya #B21010 tapi gw takut kena plagiat jadi ubah dikit)
+#9E172F Warna maroon primary dark (Seharusnya #9E172E)
+#7C0922 Warna maroon primary dark 2 (optional, #7C0921)
