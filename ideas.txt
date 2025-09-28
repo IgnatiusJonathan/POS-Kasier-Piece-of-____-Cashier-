@@ -1,0 +1,2 @@
+1. Navbar ganti warna jika di dalam situs itu sekarang
+2. Navbar bisa muncul dari kiri seperti pop up
