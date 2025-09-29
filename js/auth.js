@@ -12,7 +12,7 @@ if (loginForm) {
     const msg = document.getElementById("loginMsg");
 
     if (!employeeID || !password) {
-      msg.textContent = "How am I supposed to know if it's blank?";
+      msg.textContent = "Please fill the required content";
       msg.style.color = "red";
       return;
     }
@@ -29,7 +29,7 @@ if (loginForm) {
       setTimeout(() => (window.location.href = "../index.html"), 1000);
     } else {
       msg.textContent =
-        "Hmm that doesn't seem right, either your ID or password is incorrect";
+        "ID or password is incorrect";
       msg.style.color = "red";
     }
   });
