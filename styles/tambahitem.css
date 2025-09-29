@@ -1,6 +1,48 @@
-.form-container {
-    display: flex; /* Mengaktifkan mode Flexbox */
-    flex-direction: column; /* Mengatur item agar tersusun ke bawah */
-    gap: 30px; /* Memberi jarak yang SAMA antar item */
-    width: 250px; /* (Opsional) Mengatur lebar form */
+body {
+  background: url('images/src/market.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 80px auto 0 auto;
+    width: 320px;
+    padding: 40px 50px;
+    background-color: #b21011;
+    color: #f3ecec;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(178, 16, 17, 0.5);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group {
+    font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column; 
+}
+
+.form-group input{
+margin-top: 5px;
+border-radius: 3px;
+height: 30px;
+}
+
+.submit input{
+font-family: 'Roboto', 'Open Sans', Arial, sans-serif;  
+border-radius: 8px;
+font-size: 20px;
+background-color: #131313;
+color: #ffff;
+}
+
+.submit{
+ align-items: center;
+}
+
