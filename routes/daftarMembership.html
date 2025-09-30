@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Daftar Membership</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+        <label>Nama:</label>
+        <input type="text" id="signupName" required><br>
+        <label>Tanggal Lahir:</label>
+        <input type="date" id="signupBirthday" required><br>
+        <label>Nomor Telepon:</label>
+        <input type="text" id="signupPhone" required><br>
+        
+        <button type="submit">Daftar</button>
+    </form>
+    <script src="daftarMembership.js"></script>
 </body>
 </html>
