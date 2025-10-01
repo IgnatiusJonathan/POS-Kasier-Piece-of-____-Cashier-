@@ -10,11 +10,11 @@ function renderInventory(){
       let pro = document.createElement("div");
       pro.className = "inventorySlot"
       pro.innerHTML = `
-      <span class="name">${p.name}</span>
-      <img class="image" src="${p.image}" alt="${p.name}">
-      <span class="ID">${p.productID}</span>
-      <span class="price">${p.price}</span>
-      <span class="amount">${p.amount}</span>
+      <span class="name">${p.name}</span><br>
+      <img class="image" src="${p.image}" alt="${p.name}"><br>
+      <span class="ID">ID: ${p.productID}</span><br>
+      <span class="price">Harga: Rp ${p.price},00</span><br>
+      <span class="amount">Stok: ${p.amount}</span>
       `;
       inventory.appendChild(pro);
     });
