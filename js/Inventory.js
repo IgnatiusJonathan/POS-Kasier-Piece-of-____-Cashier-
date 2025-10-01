@@ -4,7 +4,7 @@ let products = JSON.parse(localStorage.getItem("ProductID")) || [];
 function renderInventory(){
   inventory.innerHTML = "";
   
-  if(products.length ===0) inventory.innerHTML= `<p>Inventory kosong<p>`
+  if(products.length ===0) inventory.innerHTML= `<p>Inventory kosong</p>`
   else{
     products.forEach(p =>{
       let pro = document.createElement("div");
