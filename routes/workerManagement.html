@@ -11,28 +11,29 @@
     <header class="header">
         <h1>UNTARMART</h1>
     </header>
-    <div class="admin-login">
-        <h2>login as admin</h2>
-         <img src="/POS-Kasier-Piece-of-____-Cashier-/img/account.jpg" alt="account">
-        <div class="admin-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="password">
-        <input type="submit" value="submit">
-        </div>
+<div class="create-account">
+    <h2 id="createAccount">Create Account for Employee</h2>
+    <img src="/POS-Kasier-Piece-of-____-Cashier-/img/account.jpg" alt="account">
+
+<form class="employee-form">
+    <div class="employee-input">
+        <label for="employee-id">ID:</label>
+        <input type="text" id="employee-id" name="Id" >
+
+        <label for="employee-password">Password:</label>
+        <input type="password" id="employee-password" name="password" >
     </div>
-    <div class="create-account">
-        <h2 id="createAccount">create account for Employee</h2>
-    </div>
-    <div class="employee-input" style="display: none;">
-    <label for="Id">ID:</label>
-    <input type="text" id="employee-id" name="Id">
-    <label for="password">Password:</label>
-    <input type="text" id="employee-password" name="password">
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit" class="submit-btn">
+</form>
+
+<div class="statistik">
+    <h1>EMPLOYEE STATISTICS</h1>
+ <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Cari nama karyawan...">
+    <button onclick="searchEmployee()">Cari</button>
+    <div class="manage" id="employee-data">
 </div>
-</nav>
+  </div></div>
     <script src="/POS-Kasier-Piece-of-____-Cashier-/js/worker.js"></script>
 </body>
 </html>

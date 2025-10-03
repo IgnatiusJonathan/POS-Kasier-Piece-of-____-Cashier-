@@ -1,0 +1,112 @@
+.header{
+    margin-bottom: 100px;
+}
+
+.create-account{
+width: 900px;
+height: 600px;
+background-color:#b21011;
+border-radius: 8px; 
+box-sizing: border-box;
+flex-direction: row;
+margin-bottom: 20px;
+margin-left: 350px;
+padding-top: 20px;
+}
+
+.create-account h2{
+  color: white;
+  font-size: 32px; 
+  text-align: center;
+}
+
+.create-account img{
+width: 80px;
+ height: 80px;
+object-fit: cover;
+ margin-bottom: 20px;
+ margin-left: 350px;
+}
+
+.employee-form {
+    width: 400px; 
+    margin: 50px auto; 
+    padding: 30px;
+    background-color: #B21010; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.employee-input {
+
+    display: flex;
+    flex-direction: column; 
+    gap: 8px; 
+}
+
+
+.employee-input label {
+    color: #ecf0f1; 
+    font-weight: bold; 
+    font-size: 14px;
+    margin-bottom: 4px; 
+}
+
+
+.employee-input input[type="text"],
+.employee-input input[type="password"] {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #f8f9fa;
+    border-radius: 6px;
+    background-color: #B21010; 
+    color: rgb(253, 251, 251); 
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+
+.employee-input input[type="text"]:focus,
+.employee-input input[type="password"]:focus {
+    outline: none; 
+    border-color: #f5f6f7; 
+    
+}
+
+
+.submit-btn {
+    width: 100%; 
+    padding: 12px;
+    margin-top: 20px; 
+    background-color: #faf9f9; 
+    color: #B21010;
+    font-size: 16px;
+    font-weight: bold;
+    border: none; 
+    border-radius: 6px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+
+.submit-btn:hover {
+    background-color: #eb0707; 
+}
+
+.statistik{
+margin-top: 3px;
+padding-bottom: 10px;
+ margin-right: 100px;
+gap: 5px;
+}
+
+.statistik h1{
+    display: flex;
+    margin: auto;
+    margin-top: 90px;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    font-size: 24px;
+    margin-right: 400px;
+}
