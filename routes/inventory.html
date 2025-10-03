@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory</title>
-    <link rel="stylesheet" href="../styles/inventory.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarumart Kasir</title>
+  <link rel="stylesheet" href="template.css">
 </head>
 <body>
-    <div id ="inventory" class="inventory"></div>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
+    </div>
+    <div class="header-right">
+      <div class="employee-login" id="profileMenu">
+        <span class="cashier-name">Cashier Name ▼</span>
+        <div class="profile-icon">👤</div>
+      </div>
+
+      <!-- buat dropdown logout -->
+      <div class="dropdown" id="dropdownMenu">
+        <a href="logout.html">
+          <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn"></button>
+    <ul>
+      <li><a href="dashboard.html" data-title="Dashboard">Dashboard</a></li>
+      <li><a href="inventory.html" data-title="Inventory">Inventory</a></li>
+      <li><a href="membership.html" data-title="Membership">Membership</a></li>
+      <li><a href="history.html" data-title="History">History</a></li>
+      <li><a href="checkouts.html" data-title="Checkouts">Checkouts</a></li>
+    </ul>
+  </aside>
+
+  <!-- isi -->
+  <main class="content" id="content">
+    <div class="inventory"></div>
+  </main>
+
+  <!-- footernya -->
+  <footer class="footer">
+    <p>© Copyright TARUMART 2025-2026</p>
+  </footer>
+
+  <!-- buat ke js -->
+  <script src="template.js"></script>
 </body>
 </html>

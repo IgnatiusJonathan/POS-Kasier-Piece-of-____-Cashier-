@@ -1,11 +1,11 @@
-.inventory {
+.daftar-item {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
   gap: 40px;
   padding: 20px;
   }
   
-  .inventorySlot {
+  .checkoutSlot {
     background: #f4f4f4;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -19,13 +19,13 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .inventorySlot:hover {
+  .checkoutSlot:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     z-index: 10;
   }
   
-  .inventorySlot img {
+  .checkoutSlot img {
     flex: 1;
     max-width: 150px;
     max-height: 150px;
@@ -34,7 +34,7 @@
     border-radius: 25px;
   }
 
-  .inventorySlot .info{
+  .checkoutSlot .info{
     flex:2;
     flex-direction: column;
     align-items: flex-start;
@@ -42,11 +42,11 @@
     line-height: 1.6;
   }
   
-  .inventorySlot .info .name {
+  .checkoutSlot .info .name {
     font-style: bold;
     font-size: 32px;
   }
 
-  .inventorySlot .info .ID{
+  .checkoutSlot .info .ID{
     opacity: 0.5;
   }
