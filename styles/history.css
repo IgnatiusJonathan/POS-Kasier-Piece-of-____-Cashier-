@@ -1,1 +1,35 @@
+.history li.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    background-color: #800000;
+    font-size: 14px;
+    color:#ffffff
+}
 
+.history li.historyBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.history li span {
+    flex: 1;
+    text-align: center;
+}
+
+.history ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
