@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKER MANAGEMENT</title>
-    <link rel="stylesheet" href="/POS-Kasier-Piece-of-____-Cashier-/styles/workerManagement.css">
-    <link rel="stylesheet" href="/POS-Kasier-Piece-of-____-Cashier-/template.css">
+    <link rel="stylesheet" href="../styles/workerManagement.css">
+    <link rel="stylesheet" href="../Templates/template.css">
+   
 </head>
 <body>
-    <header class="header">
-        <h1>UNTARMART</h1>
-    </header>
+    <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
+    </div>
+    <div class="header-right">
+      <div class="employee-login" id="profileMenu">
+        <span class="cashier-name">Cashier Name ▼</span>
+        <div class="profile-icon">👤</div>
+      </div>
+
+      <!-- buat dropdown logout -->
+      <div class="dropdown" id="dropdownMenu">
+        <a href="../routes/login.html">
+          <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>  
+
+   <!-- sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn"></button>
+    <ul>
+      <li><a href="dashboard.html" data-title="Dashboard">Dashboard</a></li>
+      <li><a href="inventory.html" data-title="Inventory">Inventory</a></li>
+      <li><a href="membership.html" data-title="Membership">Membership</a></li>
+      <li><a href="history.html" data-title="History">History</a></li>
+      <li><a href="checkouts.html" data-title="Checkouts">Checkouts</a></li>
+    </ul>
+  </aside>
+
+
+
 <div class="create-account">
     <h2 id="createAccount">Create Account for Employee</h2>
-    <img src="/POS-Kasier-Piece-of-____-Cashier-/img/account.jpg" alt="account">
+    <img src="../img/account.jpg" alt="account">
 
 <form class="employee-form">
     <div class="employee-input">
@@ -34,6 +67,12 @@
     <div class="manage" id="employee-data">
 </div>
   </div></div>
-    <script src="/POS-Kasier-Piece-of-____-Cashier-/js/worker.js"></script>
+
+   <!-- footernya -->
+  <footer class="footer">
+    <p>© Copyright TARUMART 2025-2026</p>
+  </footer>
+    <script src="../js/worker.js"></script>
+    <script src="../Templates/template.js"></script>
 </body>
 </html>
