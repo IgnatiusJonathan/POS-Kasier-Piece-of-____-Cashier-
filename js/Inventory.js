@@ -1,12 +1,18 @@
 let inventory = document.getElementById("inventory")
 let products = JSON.parse(localStorage.getItem("ProductID")) || [];
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
-function renderInventory(){
+function saveProducts() {
+  localStorage.setItem("ProductID", JSON.stringify(products));
+}
+
+function renderInventory(list = products){
   inventory.innerHTML = "";
   
-  if(products.length ===0) inventory.innerHTML= `<p>Inventory kosong</p>`
-  else{
-    products.forEach(p =>{
+  if (list.length === 0) inventory.innerHTML= `<p>Inventory kosong</p>`
+  else {
+    list.forEach((p, index) => {
       let pro = document.createElement("div");
       pro.className = "inventorySlot"
       pro.innerHTML = `
@@ -15,12 +21,53 @@ function renderInventory(){
         <span class="name">${p.name}</span><br>
         <span class="ID">ID: ${p.productID}</span><br>
         <span class="price">Harga: Rp ${p.price},00</span><br>
-        <span class="amount">Stok: ${p.amount}</span>
+        <div class="stock-control">
+          <span class="amount">Stok: <span class="stock-value">${p.amount}</span></span>
+          <button class="decrease">−</button>
+          <button class="increase">+</button>
+        </div>
       </div>
       `;
+
+      const decreaseBtn = pro.querySelector(".decrease");
+      const increaseBtn = pro.querySelector(".increase");
+      const stockValue = pro.querySelector(".stock-value");
+
+      decreaseBtn.addEventListener("click", () => {
+        if (products[index].amount > 0) {
+          products[index].amount--;
+          stockValue.textContent = products[index].amount;
+          saveProducts();
+        }
+      });
+
+      increaseBtn.addEventListener("click", () => {
+        products[index].amount++;
+        stockValue.textContent = products[index].amount;
+        saveProducts();
+      });
+
       inventory.appendChild(pro);
     });
     }
 }
+
+function searchProducts() {
+  const query = searchInput.value.trim().toLowerCase();
+
+  if (query === "") {
+    renderInventory(products);
+    return;
+  }
+
+  const results = products.filter(p =>
+    p.name.toLowerCase().includes(query)
+  );
+
+  renderInventory(results);
+}
+
+searchBtn.addEventListener("click", searchProducts);
+searchInput.addEventListener("input", searchProducts);
 
 renderInventory();

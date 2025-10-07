@@ -44,7 +44,14 @@
 
   <!-- isi -->
   <main class="content" id="content">
-      <!-- Tempat penunjukan history -->
+      
+    <!-- Filter history -->
+    <div class="filter-bar">
+      <input type="date" id="filterDate"></input>
+      <button class="historyBtn" id="filterBtn">Filter</button>
+      <button class="historyBtn" id="resetBtn">Reset</button>
+    </div>
+    <!-- History -->
     <div class="history" id="history"></div>
   </main>
 
@@ -54,6 +61,7 @@
   </footer>
 
   <!-- buat ke js -->
-  <script src="template.js"></script>
+  <script src="../Templates/template.js"></script>
+  <script src="../js/History.js"></script>
 </body>
 </html>
