@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ckeckout</title>
+    <title>Checkout</title>
     <link rel="stylesheet" href="../styles/checkout.css">
 </head>
 <body>
     <div id="kiri" class="kiri">
-        <div id ="daftarItem" class="daftar-item">
-
+        <div id="daftarItem" class="daftar-item">
+            <!-- List item dimuat dari JavaScript -->
         </div>
     </div>
     <div id="kanan" class="kanan">
         <div id="tampilanStroke" class="tampilan-stroke">
-
+            <h5 class="texte">Daftar Pembelian</h5>
+            <div id="daftarPembelian" class="daftar-pembelian">
+                <!-- Item yang dipilih dari inventory dengan cara klik kartunya akan muncul disini -->
+            </div>
         </div>
         <div id="checkouty" class="checkouty">
-
+            <h5 class="texte">Total</h5>
+            <div class="total-info">
+                <p>Jumlah Barang: <span id="totalJumlah">0</span></p>
+                <p>Total Harga: Rp <span id="totalHarga">0</span></p>
+            </div>
+            <div class="input-tunai">
+                <label for="nominalTunai">Nominal Tunai:</label>
+                <input type="number" id="nominalTunai" min="0" placeholder="Masukkan nominal tunai">
+            </div>
+            <div class="kembalian">
+                <p>Kembalian: Rp <span id="nilaiKembalian">0</span></p>
+            </div>
+            <a href="printStruk.html" class="tombol-input" id="tombolCheckout">Checkout</a>
         </div>
     </div>
+    <script src="../js/checkout.js"></script>
 </body>
 </html>

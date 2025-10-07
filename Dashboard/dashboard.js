@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Dashboard loaded successfully.");
 
+  // Animasi muncul untuk card
   const cards = document.querySelectorAll(".employee-card, .performance-card");
   cards.forEach((card, i) => {
     card.style.opacity = 0;
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, i * 150);
   });
 
-
+  // Efek hover card
   cards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-5px) scale(1.02)";
@@ -24,58 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const clockContainer = document.createElement("div");
-  clockContainer.id = "realtimeClock";
-  clockContainer.style.position = "fixed";
-  clockContainer.style.top = "15px";
-  clockContainer.style.right = "25px";
-  clockContainer.style.background = "rgba(0,0,0,0.7)";
-  clockContainer.style.color = "white";
-  clockContainer.style.padding = "6px 12px";
-  clockContainer.style.borderRadius = "8px";
-  clockContainer.style.fontFamily = "monospace";
-  clockContainer.style.fontSize = "14px";
-  clockContainer.style.zIndex = "1000";
-  clockContainer.style.backdropFilter = "blur(4px)";
-  document.body.appendChild(clockContainer);
-
-  function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString("id-ID", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-    clockContainer.textContent = `🕒 ${timeString}`;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  showToast("Selamat datang di Dashboard Tarumart!");
-
-  function showToast(message) {
-    const toast = document.createElement("div");
-    toast.textContent = message;
-    toast.style.position = "fixed";
-    toast.style.bottom = "20px";
-    toast.style.right = "20px";
-    toast.style.background = "#800000";
-    toast.style.color = "white";
-    toast.style.padding = "10px 18px";
-    toast.style.borderRadius = "10px";
-    toast.style.fontSize = "14px";
-    toast.style.opacity = "0";
-    toast.style.transition = "all 0.5s ease";
-    toast.style.zIndex = "9999";
-    document.body.appendChild(toast);
-
-    setTimeout(() => (toast.style.opacity = "1"), 100);
-    setTimeout(() => {
-      toast.style.opacity = "0";
-      setTimeout(() => toast.remove(), 600);
-    }, 3500);
-  }
-
+  // Animasi progress bar
   const bars = document.querySelectorAll(".fill");
   bars.forEach((bar) => {
     const targetWidth = bar.style.width || "80%";
@@ -86,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   });
 
+  // Efek reveal on scroll
   const revealElements = document.querySelectorAll(".employee-card, .performance-card");
   const revealOnScroll = () => {
     revealElements.forEach((el) => {
@@ -99,4 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
+
+  // WAKTU KERJA REAL-TIME
+  const workTimeElement = document.getElementById("workTime");
+  if (workTimeElement) {
+    const startTime = new Date(); // mulai dari waktu login
+
+    function updateWorkTime() {
+      const now = new Date();
+      const elapsed = new Date(now - startTime);
+      const hours = String(elapsed.getUTCHours()).padStart(2, "0");
+      const minutes = String(elapsed.getUTCMinutes()).padStart(2, "0");
+      const seconds = String(elapsed.getUTCSeconds()).padStart(2, "0");
+      workTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    updateWorkTime();
+    setInterval(updateWorkTime, 1000);
+  }
 });
