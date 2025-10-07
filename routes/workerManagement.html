@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKER MANAGEMENT</title>
-    <link rel="stylesheet" href="../styles/workerManagement.css">
     <link rel="stylesheet" href="../Templates/template.css">
+    <link rel="stylesheet" href="../styles/workerManagement.css">
+    
    
 </head>
 <body>
@@ -14,6 +15,17 @@
     <div class="header-left">
       <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
     </div>
+     <!--gua tambahin sendiri-->
+   <nav class="header-center">
+    <ul class="nav-links">
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Produk</a></li>
+      <li><a href="#">Transaksi</a></li>
+      <li><a href="#">Laporan</a></li>
+    </ul>
+  </nav>
+
+
     <div class="header-right">
       <div class="employee-login" id="profileMenu">
         <span class="cashier-name">Cashier Name ▼</span>
@@ -46,18 +58,51 @@
 
 <div class="create-account">
     <h2 id="createAccount">Create Account for Employee</h2>
-    <img src="../img/account.jpg" alt="account">
+     <div class="image-selector">
+    <button class="arrow left" onclick="prevImage()">&#10094;</button>
+    <img id="accountImage" src="../img/account.jpg" alt="account">
+    <button class="arrow right" onclick="nextImage()">&#10095;</button>
+  </div>
+    
 
 <form class="employee-form">
     <div class="employee-input">
         <label for="employee-id">ID:</label>
         <input type="text" id="employee-id" name="Id" >
-
+</div> 
+<div class="employee-input">
         <label for="employee-password">Password:</label>
         <input type="password" id="employee-password" name="password" >
     </div>
     <input type="submit" value="Submit" class="submit-btn">
 </form>
+
+<div class="dashboard">
+  <h3>Dashboard Utama</h3>
+  <div class="dashboard-content">
+
+    <div>
+      <h4>Jumlah Karyawan</h4>
+      <p id="totalEmployee">25</p>
+    </div>
+
+    <div>
+      <h4>Barang Terjual</h4>
+      <p id="itemsSold">1240</p>
+    </div>
+
+    <div>
+      <h4>Total Produk</h4>
+      <p id="totalProducts">312</p>
+    </div>
+
+    <div>
+      <h4>Last Update</h4>
+      <p id="lastUpdate">07 Oktober 2025, 14:32</p>
+    </div>
+
+  </div>
+</div>
 
 <div class="statistik">
     <h1>EMPLOYEE STATISTICS</h1>

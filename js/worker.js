@@ -1,4 +1,21 @@
+const images = [
+  "../img/account.jpg",
+  "../img/account2.jpg",
+  "../img/account3.jpg"
+];
 
+let currentIndex = 0;
+const imgElement = document.getElementById("accountImage");
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  imgElement.src = images[currentIndex];
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  imgElement.src = images[currentIndex];
+}
 let employees = [
       { id: 1, name: "Andi", position: "Developer", status: "active", age: 28 },
       { id: 2, name: "Budi", position: "Designer", status: "inactive", age: 32 },
