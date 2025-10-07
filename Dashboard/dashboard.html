@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Templates/template.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
+    </div>
+    <div class="header-right">
+      <div class="employee-login" id="profileMenu">
+        <span class="cashier-name">Cashier Name ▼</span>
+        <div class="profile-icon">👤</div>
+      </div>
+
+      <!-- Dropdown logout -->
+      <div class="dropdown" id="dropdownMenu">
+        <a href="../logout.html">
+          <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn"></button>
+    <ul>
+      <li><a href="../Dashboard/dashboard.html" data-title="Dashboard" class="active">Dashboard</a></li>
+      <li><a href="../Inventory/inventory.html" data-title="Inventory">Inventory</a></li>
+      <li><a href="../Membership/membership.html" data-title="Membership">Membership</a></li>
+      <li><a href="../History/history.html" data-title="History">History</a></li>
+      <li><a href="../Checkouts/checkouts.html" data-title="Checkouts">Checkouts</a></li>
+    </ul>
+  </aside>
+
+  <!-- Konten utama -->
+  <main class="content" id="content">
+    <div class="dashboard-container">
+      <h1>🏆 Top Employees of The Week</h1>
+      <div class="employee-cards">
+        <!-- Gold -->
+        <div class="employee-card gold">
+          <h2>1st Place</h2>
+          <img src="../img/employee1.jpg" alt="Employee 1" class="employee-photo" />
+          <div class="employee-info">
+            <p><strong>Nama:</strong> Lisa</p>
+            <p>Produk Terjual: <span>120</span></p>
+            <div class="progress"><div class="fill" style="width: 90%;"></div></div>
+            <p>Absensi: <span>98%</span></p>
+            <div class="progress"><div class="fill" style="width: 98%;"></div></div>
+            <p>Waktu Kerja: <span>45 Jam</span></p>
+            <div class="progress"><div class="fill" style="width: 80%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Silver -->
+        <div class="employee-card silver">
+          <h2>2nd Place</h2>
+          <img src="../img/employee2.jpg" alt="Employee 2" class="employee-photo" />
+          <div class="employee-info">
+            <p><strong>Nama:</strong> Sharon</p>
+            <p>Produk Terjual: <span>100</span></p>
+            <div class="progress"><div class="fill" style="width: 80%;"></div></div>
+            <p>Absensi: <span>95%</span></p>
+            <div class="progress"><div class="fill" style="width: 95%;"></div></div>
+            <p>Waktu Kerja: <span>40 Jam</span></p>
+            <div class="progress"><div class="fill" style="width: 70%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Bronze -->
+        <div class="employee-card bronze">
+          <h2>3rd Place</h2>
+          <img src="../img/employee3.jpg" alt="Employee 3" class="employee-photo" />
+          <div class="employee-info">
+            <p><strong>Nama:</strong> Citra</p>
+            <p>Produk Terjual: <span>90</span></p>
+            <div class="progress"><div class="fill" style="width: 70%;"></div></div>
+            <p>Absensi: <span>90%</span></p>
+            <div class="progress"><div class="fill" style="width: 90%;"></div></div>
+            <p>Waktu Kerja: <span>38 Jam</span></p>
+            <div class="progress"><div class="fill" style="width: 65%;"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- My -->
+<div class="my-performance">
+  <h2>My Performance</h2>
+  <div class="performance-card">
+    <div class="performance-info">
+      <p><strong>Nama Karyawan:</strong> Lexa</p>
+      <p><strong>Total Pelanggan:</strong> 48</p>
+      <p><strong>Jumlah Produk Terjual:</strong> 173</p>
+      <p><strong>Waktu Kerja Hari Ini:</strong> 6 jam 20 menit</p>
+      <p><strong>Absensi:</strong> 27/30</p>
+      <p><strong>ID Karyawan:</strong> KSR-01</p>
+    </div>
+    <img src="../img/Lexa.jpg" alt="Foto Karyawan" class="performance-photo">
+  </div>
+</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© Copyright TARUMART 2025-2026</p>
+  </footer>
+
+  <script src="../Templates/template.js"></script>
+</body>
+</html>
