@@ -42,7 +42,6 @@
     </ul>
   </aside>
 
-  <!-- Konten utama -->
   <main class="content" id="content">
     <div class="dashboard-container">
       <h1>🏆 Top Employees of The Week</h1>
@@ -57,7 +56,7 @@
             <div class="progress"><div class="fill" style="width: 90%;"></div></div>
             <p>Absensi: <span>98%</span></p>
             <div class="progress"><div class="fill" style="width: 98%;"></div></div>
-            <p>Waktu Kerja: <span>45 Jam</span></p>
+            <p>Rasio Waktu Kerja/hari: <span>83.8 Jam</span></p>
             <div class="progress"><div class="fill" style="width: 80%;"></div></div>
           </div>
         </div>
@@ -72,7 +71,7 @@
             <div class="progress"><div class="fill" style="width: 80%;"></div></div>
             <p>Absensi: <span>95%</span></p>
             <div class="progress"><div class="fill" style="width: 95%;"></div></div>
-            <p>Waktu Kerja: <span>40 Jam</span></p>
+            <p>Rasio Waktu Kerja/hari: <span>81.4 Jam</span></p>
             <div class="progress"><div class="fill" style="width: 70%;"></div></div>
           </div>
         </div>
@@ -87,26 +86,27 @@
             <div class="progress"><div class="fill" style="width: 70%;"></div></div>
             <p>Absensi: <span>90%</span></p>
             <div class="progress"><div class="fill" style="width: 90%;"></div></div>
-            <p>Waktu Kerja: <span>38 Jam</span></p>
+            <p>Rasio Waktu Kerja/hari: <span>79.2 Jam</span></p>
             <div class="progress"><div class="fill" style="width: 65%;"></div></div>
           </div>
         </div>
       </div>
-      <!-- My -->
-<div class="my-performance">
-  <h2>My Performance</h2>
-  <div class="performance-card">
-    <div class="performance-info">
-      <p><strong>Nama Karyawan:</strong> Lexa</p>
-      <p><strong>Total Pelanggan:</strong> 48</p>
-      <p><strong>Jumlah Produk Terjual:</strong> 173</p>
-      <p><strong>Waktu Kerja Hari Ini:</strong> 6 jam 20 menit</p>
-      <p><strong>Absensi:</strong> 27/30</p>
-      <p><strong>ID Karyawan:</strong> KSR-01</p>
-    </div>
-    <img src="../img/Lexa.jpg" alt="Foto Karyawan" class="performance-photo">
-  </div>
-</div>
+      
+      <!-- My Performance -->
+      <div class="my-performance">
+        <h2>My Performance</h2>
+        <div class="performance-card">
+          <div class="performance-info">
+            <p><strong>Nama Karyawan:</strong> Lexa</p>
+            <p><strong>Total Pelanggan:</strong> 48</p>
+            <p><strong>Jumlah Produk Terjual:</strong> 173</p>
+            <p><strong>Waktu Kerja Hari Ini:</strong> <span id="workTime">00:00:00</span></p>
+            <p><strong>Absensi:</strong> 27/30</p>
+            <p><strong>ID Karyawan:</strong> KSR-01</p>
+          </div>
+          <img src="../img/Lexa.jpg" alt="Foto Karyawan" class="performance-photo">
+        </div>
+      </div>
     </div>
   </main>
 
@@ -115,5 +115,6 @@
   </footer>
 
   <script src="../Templates/template.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
