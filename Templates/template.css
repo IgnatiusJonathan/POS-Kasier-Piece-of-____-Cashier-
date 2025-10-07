@@ -351,8 +351,6 @@ body {
   }
 }
 
-/* --- Tambahan untuk responsivitas dan tampilan mobile yang lebih dinamis --- */
-
 /* Saat layar kecil (tablet / hp) */
 @media (max-width: 768px) {
   /* Sidebar jadi slide dari kiri */
@@ -387,7 +385,6 @@ body {
     z-index: 1001;
   }
 
-  /* Konten bergeser agar tidak ketindihan sidebar */
   .content {
     margin-left: 0;
     padding: 15px;
