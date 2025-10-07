@@ -88,12 +88,12 @@
   .search-bar button {
     padding: 8px 12px;
     border: none;
-    background: #3498db;
+    background: #800000;
     color: white;
     border-radius: 6px;
     cursor: pointer;
   }
   
   .search-bar button:hover {
-    background: #2980b9;
+    background: #a32626;
   }
