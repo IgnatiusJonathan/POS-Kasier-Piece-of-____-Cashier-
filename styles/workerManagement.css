@@ -1,6 +1,18 @@
 html {
   scroll-behavior: smooth; /* biar transisi scroll halus */
 }
+.content {
+    /* Mendorong konten ke kanan untuk memberi ruang bagi sidebar */
+    margin-left: 40px; 
+    
+    /* Menambahkan animasi transisi agar pergerakan mulus */
+    transition: margin-left 0.3s ease;
+    padding: 20px
+}
+.content.expanded {
+    /* Konten akan bergeser penuh ke kiri */
+    margin-left: -30px; 
+}
 
 .nav-links {
   list-style: none;        /* hilangkan titik daftar */
