@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <title>Tarumart Checkout</title>
+    <link rel="stylesheet" href="../Templates/template.css">
     <link rel="stylesheet" href="../styles/checkout.css">
 </head>
 <body>
-    <div id="kiri" class="kiri">
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Cari nama barang...">
-            <button id="searchButton">Cari</button>
+    <header class="header">
+        <div class="header-left">
+            <h1><span class="brand">TARUMART</span> <span class="tagline">Checkout</span></h1>
         </div>
-        <div id="daftarItem" class="daftar-item">
-            <!-- List item dimuat dari JavaScript -->
-        </div>
-    </div>
-    <div id="kanan" class="kanan">
-        <div id="tampilanStroke" class="tampilan-stroke">
-            <h5 class="texte">Daftar Pembelian</h5>
-            <div id="daftarPembelian" class="daftar-pembelian">
-                <!-- Item yang dipilih dari inventory dengan cara klik kartunya akan muncul disini -->
+        <div class="header-right">
+            <div class="employee-login" id="profileMenu">
+                <span class="cashier-name">Cashier Name ▼</span>
+                <div class="profile-icon">👤</div>
+            </div>
+
+            <!-- Buat dropdown logout -->
+            <div class="dropdown" id="dropdownMenu">
+                <a href="logout.html">
+                    <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
+                    Logout
+                </a>
             </div>
         </div>
-        <div id="checkouty" class="checkouty">
-            <h5 class="texte">Total</h5>
-            <div class="total-info">
-                <p>Jumlah Barang: <span id="totalJumlah">0</span></p>
-                <p>Total Harga: Rp <span id="totalHarga">0</span></p>
+    </header>
+
+    <!-- sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn"></button>
+        <ul>
+            <li><a href="dashboard.html" data-title="Dashboard">Dashboard</a></li>
+            <li><a href="inventory.html" data-title="Inventory">Inventory</a></li>
+            <li><a href="membership.html" data-title="Membership">Membership</a></li>
+            <li><a href="history.html" data-title="History">History</a></li>
+            <li><a href="checkout.html" data-title="Checkouts" style="background-color: var(--hover);">Checkouts</a></li>
+        </ul>
+    </aside>
+
+    <main class="content" id="content">
+        <div class="checkout-container">
+            <!-- Kiri -->
+            <div id="kiri" class="kiri">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Cari nama barang...">
+                    <button id="searchButton">Cari</button>
+                </div>
+                <div id="daftarItem" class="daftar-item">
+                    <!-- List item dimuat dari JavaScript -->
+                </div>
             </div>
-            <div class="input-tunai">
-                <label for="nominalTunai">Nominal Tunai:</label>
-                <input type="number" id="nominalTunai" min="0" placeholder="Masukkan nominal tunai">
+
+            <!-- Kanan -->
+            <div id="kanan" class="kanan">
+                <div id="tampilanStroke" class="tampilan-stroke">
+                    <h5 class="texte">Daftar Pembelian</h5>
+                    <div id="daftarPembelian" class="daftar-pembelian">
+                        <!-- Item yang dipilih dari inventory dengan cara klik kartunya akan muncul disini -->
+                    </div>
+                </div>
+                <div id="checkouty" class="checkouty">
+                    <h5 class="texte">Total</h5>
+                    <div class="total-info">
+                        <p>Jumlah Barang: <span id="totalJumlah">0</span></p>
+                        <p>Total Harga: Rp <span id="totalHarga">0</span></p>
+                    </div>
+                    <div class="input-tunai">
+                        <label for="nominalTunai">Nominal Tunai:</label>
+                        <input type="number" id="nominalTunai" min="0" placeholder="Masukkan nominal tunai">
+                    </div>
+                    <div class="kembalian">
+                        <p>Kembalian: Rp <span id="nilaiKembalian">0</span></p>
+                    </div>
+                    <a href="printStruk.html" class="tombol-input" id="tombolCheckout">Checkout</a>
+                </div>
             </div>
-            <div class="kembalian">
-                <p>Kembalian: Rp <span id="nilaiKembalian">0</span></p>
-            </div>
-            <a href="printStruk.html" class="tombol-input" id="tombolCheckout">Checkout</a>
         </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <p>© Copyright TARUMART 2025-2026</p>
+    </footer>
+
+    <script src="../js/template.js"></script>
     <script src="../js/checkout.js"></script>
 </body>
 </html>
