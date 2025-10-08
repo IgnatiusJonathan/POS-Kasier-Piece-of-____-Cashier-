@@ -1,16 +1,24 @@
 let daftarItem = document.getElementById("daftarItem");
 let products = JSON.parse(localStorage.getItem("ProductID")) || [];
+let searchInput = document.getElementById("searchInput");
+let searchButton = document.getElementById("searchButton");
 
 let keranjang = [];
 
-function printInventory(){
+function printInventory(filteredProducts = null) {
     daftarItem.innerHTML = "";
 
-    if(products.length === 0) { 
-        daftarItem.innerHTML = '<p style="text-align: center; color: #373737; font-size: 18px; padding: 40px;">Tidak ada barang yang dijual (<a href="inventory.html" style="color: #B21011;">klik disini untuk pergi ke inventory</a>)</p>';
+    const productsToShow = filteredProducts || products;
+
+    if(productsToShow.length === 0) { 
+        if (filteredProducts) {
+            daftarItem.innerHTML = '<p class="no-results">Tidak ada barang yang sesuai dengan pencarian "' + searchInput.value + '"</p>';
+        } else {
+            daftarItem.innerHTML = '<p style="text-align: center; color: #373737; font-size: 18px; padding: 40px;">Tidak ada barang yang dijual (<a href="inventory.html" style="color: #B21011;">klik disini untuk pergi ke inventory</a>)</p>';
+        }
     }
     else {
-        products.forEach(barang => {
+        productsToShow.forEach(barang => {
             let barangs = document.createElement("div");
             barangs.className = "checkoutSlot";
             barangs.innerHTML = `
@@ -30,6 +38,32 @@ function printInventory(){
         });
     }
 }
+
+function searchProducts() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+        printInventory();
+        return;
+    }
+
+    const filteredProducts = products.filter(barang => 
+        barang.name.toLowerCase().includes(searchTerm)
+    );
+
+    printInventory(filteredProducts);
+}
+
+searchButton.addEventListener('click', searchProducts);
+
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchProducts();
+    }
+});
+
+searchInput.addEventListener('input', function() {
+});
 
 function tambahKeKeranjang(barang) {
     const itemIndex = keranjang.findIndex(item => item.productID === barang.productID);
