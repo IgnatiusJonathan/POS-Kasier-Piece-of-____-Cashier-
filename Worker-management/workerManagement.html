@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKER MANAGEMENT</title>
     <link rel="stylesheet" href="../Templates/template.css">
-    <link rel="stylesheet" href="../styles/workerManagement.css">
+    <link rel="stylesheet" href="workerManagement.css">
     
    
 </head>
@@ -18,10 +18,9 @@
      <!--gua tambahin sendiri-->
    <nav class="header-center">
     <ul class="nav-links">
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Produk</a></li>
-      <li><a href="#">Transaksi</a></li>
-      <li><a href="#">Laporan</a></li>
+      <li><a href="#">Admin</a></li>
+      <li><a href="#">Statistik</a></li>
+      <li><a href="#">Karyawan</a></li>
     </ul>
   </nav>
 
@@ -46,7 +45,7 @@
   <aside class="sidebar" id="sidebar">
     <button class="toggle-btn" id="toggleBtn"></button>
     <ul>
-      <li><a href="dashboard.html" data-title="Dashboard">Dashboard</a></li>
+      <li><a href="../Dashboard/dashboard.html" data-title="Dashboard">Dashboard</a></li>
       <li><a href="inventory.html" data-title="Inventory">Inventory</a></li>
       <li><a href="membership.html" data-title="Membership">Membership</a></li>
       <li><a href="history.html" data-title="History">History</a></li>
@@ -67,16 +66,25 @@
     
 
 <form class="employee-form">
+  <div class="employee-input">
+        <label for="employee-name">Name:</label>
+        <input type="text" id="employee-name" name="name" >
+</div> 
     <div class="employee-input">
         <label for="employee-id">ID:</label>
         <input type="text" id="employee-id" name="Id" >
 </div> 
+<div class="employee-input">
+        <label for="employee-email">Email:</label>
+        <input type="email" id="employee-email" name="email" >
+    </div>
 <div class="employee-input">
         <label for="employee-password">Password:</label>
         <input type="password" id="employee-password" name="password" >
     </div>
     <input type="submit" value="Submit" class="submit-btn">
 </form>
+</div>
 
 <div class="dashboard">
   <h3>Dashboard Utama</h3>
@@ -105,21 +113,26 @@
   </div>
 </div>
 
+<div class="employee-management-wrapper">
+    <h1>EMPLOYEE MANAGEMENT</h1>
 
-<div class="statistik">
-    <h1>EMPLOYEE STATISTICS</h1>
- <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Cari nama karyawan...">
-    <button onclick="searchEmployee()">Cari</button>
-    <div class="manage" id="employee-data">
+    <div class="employee-toolbar">
+        <input type="search" id="employeeSearch" placeholder="Cari Berdasarkan Nama atau Id">
+    </div>
+
+    <div id="employeeListContainer" class="employee-list-container">
+        </div>
 </div>
-  </div></div>
+
+
+
+
 </div>
    <!-- footernya -->
   <footer class="footer">
     <p>© Copyright TARUMART 2025-2026</p>
   </footer>
-    <script src="../js/worker.js"></script>
+    <script src="worker.js"></script>
     <script src="../Templates/template.js"></script>
 </body>
 </html>
