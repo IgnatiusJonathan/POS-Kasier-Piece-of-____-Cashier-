@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarumart Kasir: Print Struk</title>
+    <link rel="stylesheet" href="../styles/printStruk.css">
+</head>
+<body>
+    <div id="strukBox" class="struk-box">
+        <div class="struk-header">
+            <h2>TARUMART</h2>
+        </div>
+        
+        <div class="struk-info">
+            <div class="info-row">
+                <span>Tanggal:</span>
+                <span id="tanggalTransaksi">-</span>
+            </div>
+            <div class="info-row">
+                <span>Kasir:</span>
+                <span id="namaKasir">-</span>
+            </div>
+            <div class="info-row">
+                <span>Customer:</span>
+                <span id="namaPembeli">-</span>
+            </div>
+        </div>
+
+        <div class="divider">==============================</div>
+
+        <div id="itemList" class="item-list">
+            <!-- Aitem pembelian akan dimuat di sini dengan menggunakan js -->
+        </div>
+
+        <div class="divider">==============================</div>
+
+        <div class="total-section">
+            <div class="total-row total">
+                <span>Total:</span>
+                <span id="hargaTotal">Rp 0</span>
+            </div>
+            <div class="total-row">
+                <span>Tunai:</span>
+                <span id="uangDibayar">Rp 0</span>
+            </div>
+            <div class="total-row">
+                <span>Kembalian:</span>
+                <span id="kembalian">Rp 0</span>
+            </div>
+        </div>
+
+        <div class="divider">==============================</div>
+
+        <div class="footer">
+            <p>Terima kasih atas kunjungan Anda</p>
+            <p>Silahkan datang kembali</p>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="printBtn" class="print-button"> Print Struk</button>
+        <button id="backBtn" class="back-button"> Kembali ke Checkout</button>
+    </div>
+
+    <script src="../js/printStruk.js"></script>
+</body>
+</html>
