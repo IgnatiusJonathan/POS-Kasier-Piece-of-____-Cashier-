@@ -1,16 +1,25 @@
 let daftarItem = document.getElementById("daftarItem");
 let products = JSON.parse(localStorage.getItem("ProductID")) || [];
+let searchInput = document.getElementById("searchInput");
+let searchButton = document.getElementById("searchButton");
 
 let keranjang = [];
 
-function printInventory(){
+// Fungsi untuk menampilkan inventory dengan filter
+function printInventory(filteredProducts = null) {
     daftarItem.innerHTML = "";
 
-    if(products.length === 0) { 
-        daftarItem.innerHTML = '<p style="text-align: center; color: #373737; font-size: 18px; padding: 40px;">Tidak ada barang yang dijual (<a href="inventory.html" style="color: #B21011;">klik disini untuk pergi ke inventory</a>)</p>';
+    const productsToShow = filteredProducts || products;
+
+    if(productsToShow.length === 0) { 
+        if (filteredProducts) {
+            daftarItem.innerHTML = '<p class="no-results">Tidak ada barang yang sesuai dengan pencarian "' + searchInput.value + '"</p>';
+        } else {
+            daftarItem.innerHTML = '<p style="text-align: center; color: #666; font-size: 16px; padding: 40px; background: white; border-radius: 8px; margin: 20px;">Tidak ada barang yang dijual (<a href="inventory.html" style="color: var(--maroon);">klik disini untuk pergi ke inventory</a>)</p>';
+        }
     }
     else {
-        products.forEach(barang => {
+        productsToShow.forEach(barang => {
             let barangs = document.createElement("div");
             barangs.className = "checkoutSlot";
             barangs.innerHTML = `
@@ -30,6 +39,39 @@ function printInventory(){
         });
     }
 }
+
+// Fungsi untuk mencari barang berdasarkan nama
+function searchProducts() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+        // Jika search kosong, tampilkan semua produk
+        printInventory();
+        return;
+    }
+
+    const filteredProducts = products.filter(barang => 
+        barang.name.toLowerCase().includes(searchTerm)
+    );
+
+    printInventory(filteredProducts);
+}
+
+// Event listener untuk tombol search
+searchButton.addEventListener('click', searchProducts);
+
+// Event listener untuk enter pada input search
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchProducts();
+    }
+});
+
+// Event listener untuk input real-time (opsional)
+searchInput.addEventListener('input', function() {
+    // Jika ingin search real-time, hapus komentar di bawah
+    // searchProducts();
+});
 
 function tambahKeKeranjang(barang) {
     const itemIndex = keranjang.findIndex(item => item.productID === barang.productID);
