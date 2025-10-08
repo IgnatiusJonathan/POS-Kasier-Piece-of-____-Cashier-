@@ -16,6 +16,49 @@ body {
     padding: 20px;
     background-color: white;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #B21011;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #FFBA01;
+    box-shadow: 0 0 5px rgba(255, 186, 1, 0.5);
+}
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchButton {
+    padding: 12px 20px;
+    background-color: #B21011;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #9E172F;
 }
 
 .kanan {
@@ -296,4 +339,12 @@ body {
 
 .daftar-pembelian::-webkit-scrollbar-thumb:hover {
     background: #9E172F;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 40px;
+    grid-column: 1 / -1;
 }
