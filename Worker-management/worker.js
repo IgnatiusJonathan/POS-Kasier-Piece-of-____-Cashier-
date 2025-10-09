@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         employeesData.push(newEmployee);
         saveData(employeesData);
         renderEmployees(employeesData);
+        alert('Akun berhasil dibuat!');
         addEmployeeForm.reset();
     });
 
