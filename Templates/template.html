@@ -54,6 +54,21 @@
 
   <script src="../js/auth.js"></script>
   <script src="template.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const nameSpan = document.querySelector(".cashier-name");
+
+      const role = localStorage.getItem("role");
+
+      if (role === "admin") {
+        nameSpan.textContent = "Admin ▼";
+      } else if (role) {
+        nameSpan.textContent = role.charAt(0).toUpperCase() + role.slice(1) + " ▼";
+      } else {
+        nameSpan.textContent = "Cashier ▼";
+      }
+    });
+  </script>
 </body>
 </html>
-
