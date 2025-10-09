@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${stars} (${rating})`;
     };
 
-    // FUNGSI BARU: Menghitung Persentase Absensi
+    // Menghitung Persentase Absensi
     const calculateAttendancePercentage = (absensiString) => {
         if (!absensiString || typeof absensiString !== 'string') return 'N/A';
         const parts = absensiString.split('/');
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${percentage}%`;
     };
 
-    // --- PERUBAHAN UTAMA DI SINI ---
    const renderEmployees = (employees) => {
     employeeListContainer.innerHTML = '';
     if (employees.length === 0) {
