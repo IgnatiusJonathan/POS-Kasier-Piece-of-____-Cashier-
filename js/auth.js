@@ -1,4 +1,15 @@
 if (!localStorage.getItem("users")) {
+  const defaultUser = [
+    {
+      employeeID: "0001",
+      password: "12345",
+      name: "Admin",
+    }
+  ];
+  localStorage.setItem("users", JSON.stringify(defaultUser));
+}
+
+if (!localStorage.getItem("users")) {
   localStorage.setItem("users", JSON.stringify([]));
 }
 
