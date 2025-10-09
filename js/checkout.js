@@ -289,7 +289,7 @@ function simpanTransaksiDanRedirect() {
     const tunai = parseFloat(document.getElementById('nominalTunai').value) || 0;
     const selectedMethod = paymentMethod.value;
     const namaPembeli = namaPembeliInput.value.trim() || "Umum";
-    
+
     const transaksi = {
         items: keranjang.map(item => ({
             productID: item.productID,
@@ -305,10 +305,28 @@ function simpanTransaksiDanRedirect() {
         namaKasir: currentCashier,
         waktu: new Date().toLocaleString()
     };
-    
+
+    const historyEntry = {
+        item: keranjang.map(item => item.name).join(', '),
+        amount: keranjang.reduce((sum, item) => sum + item.jumlah, 0),
+        price: totalHarga,
+        date: new Date().toISOString().split('T')[0],
+        costumer: namaPembeli,
+        cashier: currentCashier
+    };
+
     try {
         localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
+        
+        let history = JSON.parse(localStorage.getItem("History")) || [];
+        history.push(historyEntry);
+        localStorage.setItem("History", JSON.stringify(history));
+
+        sessionStorage.setItem("History", JSON.stringify(history));
+        
+        console.log('Transaksi disimpan:', historyEntry);
         window.location.href = 'printStruk.html';
+        
     } catch (error) {
         console.error('Error menyimpan transaksi:', error);
         alert('Terjadi kesalahan saat menyimpan transaksi. Silahkan coba lagi.');
