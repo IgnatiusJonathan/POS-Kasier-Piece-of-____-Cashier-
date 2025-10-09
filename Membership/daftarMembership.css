@@ -1,1 +1,69 @@
+main {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+main h1 {
+  color: var(--maroon);
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+#signupForm {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#signupForm label {
+  font-weight: 600;
+  color: #333;
+}
+
+#signupForm input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#signupForm input:focus {
+  border-color: var(--maroon);
+  box-shadow: 0 0 4px rgba(128, 0, 0, 0.2);
+}
+
+#signupForm button[type="submit"] {
+  background-color: var(--maroon);
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#signupForm button[type="submit"]:hover {
+  background-color: var(--hover);
+  transform: scale(1.03);
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 20px;
+  }
+
+  #signupForm {
+    padding: 20px;
+  }
+}
