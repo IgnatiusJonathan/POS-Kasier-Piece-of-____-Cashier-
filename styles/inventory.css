@@ -51,6 +51,10 @@
     opacity: 0.5;
   }
 
+  .inventorySlot .info .Jenis{
+    opacity: 0.7;
+  }
+
   .stock-control {
     display: flex;
     align-items: center;

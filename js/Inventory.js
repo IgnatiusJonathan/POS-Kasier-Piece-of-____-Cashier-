@@ -19,6 +19,7 @@ function renderInventory(list = products){
       <img class="image" src="${p.image}" alt="${p.name}"><br>
       <div class="info">
         <span class="name">${p.name}</span><br>
+        <span class="jenis>${p.jenis}</span><br>
         <span class="ID">ID: ${p.productID}</span><br>
         <span class="price">Harga: Rp ${p.price},00</span><br>
         <div class="stock-control">
