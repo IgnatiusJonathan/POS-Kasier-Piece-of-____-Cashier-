@@ -1,6 +1,5 @@
-/* BARU: Menambahkan efek smooth scroll */
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,11 +8,10 @@ body {
   background-color: #f7f7f7;
 }
 
-/* ==== CONTENT UTAMA ==== */
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* biar semua di tengah horizontal */
+  align-items: center;
   justify-content: flex-start;
   margin-left: 150px;
   padding: 60px 20px;
@@ -24,13 +22,12 @@ body {
   margin-left: -70px;
 }
 
-/* ==== NAV BAR ==== */
 .nav-links {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin: 0px;
+  margin: 0;
   margin-right: 100px;
   padding: 0;
 }
@@ -51,7 +48,6 @@ body {
   color: #a32626;
 }
 
-/* ==== CREATE ACCOUNT ==== */
 .create-account {
   width: 800px;
   max-width: 90%;
@@ -63,7 +59,6 @@ body {
   text-align: center;
   margin: 40px auto;
   padding-bottom: 30px;
-
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -79,7 +74,6 @@ body {
   border-top-right-radius: 8px;
 }
 
-/* ==== IMAGE SELECTOR ==== */
 .image-selector {
   display: flex;
   align-items: center;
@@ -116,7 +110,6 @@ body {
   transform: scale(1.2);
 }
 
-/* ==== FORM EMPLOYEE ==== */
 .employee-form {
   width: 400px;
   max-width: 90%;
@@ -124,7 +117,6 @@ body {
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
-
 }
 
 .employee-input {
@@ -174,7 +166,6 @@ body {
   background-color: #a00000;
 }
 
-/* ==== DASHBOARD ==== */
 .dashboard {
   width: 800px;
   max-width: 90%;
@@ -205,185 +196,166 @@ body {
   border-bottom: none;
 }
 
-/* ==== STATISTIK ==== */
-
 .search-bar button:hover {
   background-color: #a00000;
 }
 
-/* Tata letak utama wrapper */
-/* Ganti semua style di bawah ini di file CSS Anda */
 .employee-management-wrapper {
-    max-width: 800px;
-    width: 100%; /* BARU: Menetapkan lebar agar tidak menyusut */
-    box-sizing: border-box; /* BARU: Memastikan padding tidak menambah lebar total */
-    margin:auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
-.employee-management-wrapper h1{
-  text-align: center; /* Memastikan judul selalu di tengah */
-    color: #2c3e50;
-    margin-bottom: 25px; 
+.employee-management-wrapper h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
 }
 
-/* Tampilan List Karyawan */
 .employee-list-container {
-    /* Hanya sebagai kontainer */
-      margin-top: 40px;
-      font-size: 12px;
+  margin-top: 40px;
+  font-size: 12px;
 }
 
 .employee-toolbar {
-    max-width: 100%;
-    margin: 20px auto;
+  max-width: 100%;
+  margin: 20px auto;
 }
 
-/* Setiap baris/item karyawan dibuat lebih ringkas */
 .employee-list-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 8px 12px; /* Padding diperkecil lagi */
-    margin-bottom: 10px; 
-    transition: box-shadow 0.2s, border-color 0.2s;
-}
-.employee-list-item:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    border-color: #800000;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-/* Ikon/Gambar diperkecil */
+.employee-list-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-color: #800000;
+}
+
 .employee-icon {
-    flex-shrink: 0;
-    margin-right: 15px; /* Jarak diperkecil */
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.employee-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.employee-details {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.detail-item {
+  padding: 0;
+  border-left: 1px solid #f0f0f0;
+  min-width: 70px;
+}
+
+.detail-item:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.detail-item strong {
+  display: block;
+  font-size: 0.65em;
+  color: #888;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.detail-item span {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #333;
+}
+
+.employee-actions {
+  margin-left: 15px;
+}
+
+.remove-btn {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #660000;
 }
 
 #employeeSearch {
-    width: 100%; /* Mengisi lebar toolbar */
-    font-size: 16px;
-    color: white; 
-    background-color: #800000; /* Latar belakang merah maroon */
-    
-    /* Padding kanan dibuat besar untuk memberi ruang bagi ikon */
-    padding: 12px 40px 12px 15px; 
-    border: 2px solid #800000;
-    border-radius: 8px; /* Sudut rounded di semua sisi */
-    outline: none;
-    
-    /* Ikon pencarian warna PUTIH sebagai background */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center; /* Posisi ikon di kanan dalam */
-    
-    transition: all 0.3s ease;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  background-color: #800000;
+  padding: 12px 40px 12px 15px;
+  border: 2px solid #800000;
+  border-radius: 8px;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  transition: all 0.3s ease;
 }
 
-
-
-/* Style untuk Teks Placeholder */
 #employeeSearch::placeholder {
-    color: white;
-    opacity: 0.7;
+  color: white;
+  opacity: 0.7;
 }
 
-/* Efek HOVER (saat mouse di atasnya) */
 #employeeSearch:hover {
-    background-color: #800000; /* Latar belakang sedikit lebih gelap */
-    border-color: #800000;
+  background-color: #800000;
+  border-color: #800000;
 }
 
-/* Efek FOCUS (saat di-klik untuk input) */
 #employeeSearch:focus {
-    background-color: white;
-    color: #333;
-    border-color: #800000;
-
-    /* Ikon pencarian berubah jadi MERAH MAROON saat fokus */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w.w3.org/2000/svg' width='16' height='16' fill='%23800000' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
-}
-.employee-icon img {
-    width: 40px; /* Ukuran diperkecil dari 50px */
-    height: 40px; /* Ukuran diperkecil dari 50px */
-    border-radius: 50%;
-    object-fit: cover;
+  background-color: white;
+  color: #333;
+  border-color: #800000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23800000' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
 }
 
-/* Wadah untuk semua detail teks */
-.employee-details {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1px; /* Spasi antar item diperkecil */
-}
 .search-btn {
-    padding: 12px 15px;
-    background-color: #800000; /* Latar belakang merah maroon */
-    border: 2px solid #800000;
-    
-    /* Membuat sudut kanan rounded, sudut kiri lurus */
-    border-radius: 0 8px 8px 0;
-    
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+  padding: 12px 15px;
+  background-color: #800000;
+  border: 2px solid #800000;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
+
 .search-btn:hover {
-    background-color: #660000; /* Warna lebih gelap saat hover */
-    border-color: #660000;
+  background-color: #660000;
+  border-color: #660000;
 }
-/* Setiap bagian data (Nama, ID, Gaji, dll) */
-.detail-item {
-    padding: 0 0px; /* Padding diperkecil */
-    border-left: 1px solid #f0f0f0;
-    min-width: 70px; /* Lebar minimum diperkecil */
-}
-.detail-item:first-child {
-    border-left: none;
-    padding-left: 0;
-}
-.detail-item strong {
-    display: block;
-    font-size: 0.65em; /* Font label diperkecil lagi */
-    color: #888;
-    margin-bottom: 2px;
-    text-transform: uppercase;
-}
-.detail-item span {
-    font-size: 0.85em; /* Font data diperkecil lagi */
-    font-weight: 500;
-    color: #333;
-}
-
-/* Wadah untuk tombol aksi di kanan */
-.employee-actions {
-    margin-left: 15px;
-}
-.remove-btn {
-    background-color: #800000;
-    color: white;
-    border: none;
-    padding: 5px 10px; /* Tombol diperkecil */
-    font-size: 0.8em; /* Font tombol diperkecil */
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-.remove-btn:hover { background-color: #660000; }
-
-/* ==== RESPONSIVE ==== */
-/* ==================== */
-/* 📱 RESPONSIVE MOBILE */
-/* ==================== */
 
 @media (max-width: 1024px) {
   .content {
@@ -417,14 +389,12 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Layout utama di HP */
   .content {
     margin-left: 0;
     padding: 20px 10px;
     align-items: center;
   }
 
-  /* Form dan dashboard lebih kecil */
   .create-account,
   .dashboard,
   .employee-form,
@@ -436,7 +406,6 @@ body {
     box-shadow: none;
   }
 
-  /* Teks & elemen form */
   .employee-input input {
     font-size: 14px;
     padding: 10px;
@@ -447,7 +416,6 @@ body {
     padding: 10px;
   }
 
-  /* List karyawan disusun kolom */
   .employee-list-item {
     flex-direction: column;
     align-items: flex-start;
@@ -478,21 +446,18 @@ body {
     text-align: center;
   }
 
-  /* Input pencarian agar tidak kepotong */
   #employeeSearch {
     font-size: 14px;
     padding: 10px 35px 10px 12px;
     background-position: right 10px center;
   }
 
-  /* Tombol search */
   .search-btn {
     padding: 10px 12px;
   }
 }
 
 @media (max-width: 480px) {
-  /* Untuk layar HP kecil (≤480px) */
   .create-account h2,
   .dashboard h3 {
     font-size: 18px;
