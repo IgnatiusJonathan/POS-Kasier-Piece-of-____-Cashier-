@@ -37,7 +37,7 @@ if (loginForm) {
       localStorage.setItem("loggedInUser", employeeID);
       msg.textContent = "Login successful, Welcome!";
       msg.style.color = "green";
-      setTimeout(() => (window.location.href = "../index.html"), 1000);
+      setTimeout(() => (window.location.href = "../Dashboard/dashboard.html"), 1000);
     } else {
       msg.textContent =
         "ID or password is incorrect";
