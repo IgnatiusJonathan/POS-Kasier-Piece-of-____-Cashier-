@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const itemCard = `
                 <div class="item-card">
-                    <img src="${item.image}" alt="${item.nama}">
-                    <h4>${item.nama}</h4>
+                    <img src="${item.image}" alt="${item.name}">
+                    <h4>${item.name}</h4>
                     <p>ID: ${item.productID}</p>
                     <p>Jenis: ${item.jenis}</p>
                     <p>Harga: Rp ${Number(item.price).toLocaleString('id-ID')}</p>
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             const newItem = {
-                nama: document.getElementById('name').value,
+                name: document.getElementById('name').value,
                 jenis: document.getElementById('jenis').value,
                 price: document.getElementById('price').value,
                 productID: document.getElementById('productID').value,
@@ -75,4 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Saat halaman dimuat ---
     loadAndRenderItems();
 });
+
+
 
