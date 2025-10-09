@@ -20,11 +20,11 @@ function prevImage() {
 document.addEventListener('DOMContentLoaded', () => {
 
     const saveData = (data) => {
-        localStorage.setItem('tarumartEmployees', JSON.stringify(data));
+        localStorage.setItem('users', JSON.stringify(data));
     };
 
     const loadData = () => {
-        const savedData = localStorage.getItem('tarumartEmployees');
+        const savedData = localStorage.getItem('users');
         if (savedData) {
             return JSON.parse(savedData);
         } else {
