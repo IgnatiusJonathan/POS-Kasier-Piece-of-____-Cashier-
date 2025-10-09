@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Fungsi untuk memuat dan menampilkan item dari Local Storage ---
     const loadAndRenderItems = () => {
-        const items = JSON.parse(localStorage.getItem('addedItems')) || [];
+        const items = JSON.parse(localStorage.getItem('productID')) || [];
         listItemContainer.innerHTML = '';
         items.forEach(item => {
             const itemCard = `
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Simpan item ke localStorage
-            const existingItems = JSON.parse(localStorage.getItem('addedItems')) || [];
+            const existingItems = JSON.parse(localStorage.getItem('productID')) || [];
             existingItems.push(newItem);
-            localStorage.setItem('addedItems', JSON.stringify(existingItems));
+            localStorage.setItem('productID', JSON.stringify(existingItems));
             
             
             loadingSpinner.classList.add('hidden');
