@@ -1,5 +1,6 @@
 let inventory = document.getElementById("inventory")
 let products = JSON.parse(localStorage.getItem("ProductID")) || [];
+let filter = document.getElementById("jenis");
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 
@@ -55,20 +56,24 @@ function renderInventory(list = products){
 
 function searchProducts() {
   const query = searchInput.value.trim().toLowerCase();
+  const select = filter.value.toLowerCase();
 
   if (query === "") {
     renderInventory(products);
     return;
   }
 
-  const results = products.filter(p =>
-    p.name.toLowerCase().includes(query)
-  );
+  const results = products.filter(p => {
+    const nameMatch = query === "" || p.name.toLowerCase().includes(query);
+    const SelectMatch = select === "" || p.jenis.toLowerCase() === select;
+    return nameMatch && SelectMatch;
+  });
 
   renderInventory(results);
 }
 
 searchBtn.addEventListener("click", searchProducts);
 searchInput.addEventListener("input", searchProducts);
+filter.addEventListener("change", searchProducts);
 
 renderInventory();
