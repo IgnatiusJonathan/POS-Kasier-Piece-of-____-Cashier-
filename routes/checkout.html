@@ -18,7 +18,6 @@
                 <div class="profile-icon">👤</div>
             </div>
 
-            <!-- Buat dropdown logout -->
             <div class="dropdown" id="dropdownMenu">
                 <a href="logout.html">
                     <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
@@ -32,9 +31,9 @@
     <aside class="sidebar" id="sidebar">
         <button class="toggle-btn" id="toggleBtn"></button>
         <ul>
-            <li><a href="dashboard.html" data-title="Dashboard">Dashboard</a></li>
+            <li><a href="../Dashboard/dashboard.html" data-title="Dashboard">Dashboard</a></li>
             <li><a href="inventory.html" data-title="Inventory">Inventory</a></li>
-            <li><a href="membership.html" data-title="Membership">Membership</a></li>
+            <li><a href="daftarMembership.html" data-title="Membership">Membership</a></li>
             <li><a href="history.html" data-title="History">History</a></li>
             <li><a href="checkout.html" data-title="Checkouts" style="background-color: var(--hover);">Checkouts</a></li>
         </ul>
@@ -67,14 +66,40 @@
                         <p>Jumlah Barang: <span id="totalJumlah">0</span></p>
                         <p>Total Harga: Rp <span id="totalHarga">0</span></p>
                     </div>
-                    <div class="input-tunai">
+
+                    <div class="metode-pembayaran">
+                        <label for="paymentMethod">Metode Pembayaran:</label>
+                        <select id="paymentMethod" class="payment-select">
+                            <option value="tunai">Tunai</option>
+                            <option value="kartu">Kartu (Debit/Kredit)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-tunai" id="tunaiSection">
                         <label for="nominalTunai">Nominal Tunai:</label>
                         <input type="number" id="nominalTunai" min="0" placeholder="Masukkan nominal tunai">
                     </div>
+
+                    <div class="info-kartu" id="kartuSection" style="display: none;">
+                        <div class="kartu-info">
+                            <p>💳 Pembayaran dengan Kartu</p>
+                            <p class="kartu-desc">Silahkan gunakan mesin EDC untuk pembayaran kartu</p>
+                        </div>
+                    </div>
+
                     <div class="kembalian">
                         <p>Kembalian: Rp <span id="nilaiKembalian">0</span></p>
                     </div>
-                    <a href="printStruk.html" class="tombol-input" id="tombolCheckout">Checkout</a>
+                    
+                    <button class="tombol-input" id="tombolCheckout">Checkout</button>
+
+                    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+                        <div class="loading-content">
+                            <div class="loading-spinner"></div>
+                            <p>Memproses pembayaran...</p>
+                            <p class="loading-desc" id="loadingDesc">Harap tunggu sebentar</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
