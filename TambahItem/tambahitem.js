@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const itemCard = `
                 <div class="item-card">
-                    <img src="${item.gambar}" alt="${item.nama}">
+                    <img src="${item.image}" alt="${item.nama}">
                     <h4>${item.nama}</h4>
-                    <p>ID: ${item.id_produk}</p>
+                    <p>ID: ${item.productID}</p>
                     <p>Jenis: ${item.jenis}</p>
-                    <p>Harga: Rp ${Number(item.harga).toLocaleString('id-ID')}</p>
-                    <p>Jumlah: ${item.jumlah}</p>
+                    <p>Harga: Rp ${Number(item.price).toLocaleString('id-ID')}</p>
+                    <p>Jumlah: ${item.amount}</p>
                 </div>
             `;
             listItemContainer.innerHTML += itemCard;
@@ -63,19 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
             existingItems.push(newItem);
             localStorage.setItem('addedItems', JSON.stringify(existingItems));
             
-            // 3. Sembunyikan loading, tampilkan notifikasi sukses
+            
             loadingSpinner.classList.add('hidden');
             notifSukses.classList.add('show');
             
-            // 4. Reset form
+  
             addItemForm.reset();
             gambarPreview.src = '../img/placeholder.png';
             gambarDataUrl = '';
             
-            // 5. Perbarui tampilan daftar item
+  
             loadAndRenderItems();
 
-            // 6. Hilangkan notifikasi sukses setelah 2 detik
             setTimeout(() => {
                 notifSukses.classList.remove('show');
             }, 2000);
