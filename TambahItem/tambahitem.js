@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const newItem = {
                 nama: document.getElementById('nama').value,
                 jenis: document.getElementById('jenis').value,
-                price: document.getElementById('harga').value, 
-                productID: document.getElementById('id_produk').value,
-                amount: document.getElementById('jumlah').value,
+                price: document.getElementById('price').value, 
+                productID: document.getElementById('productID').value,
+                amount: document.getElementById('amount').value,
                 image: gambarDataUrl || '../img/placeholder.png' 
             };
 
