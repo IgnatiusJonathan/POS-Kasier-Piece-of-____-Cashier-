@@ -76,5 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAndRenderItems();
 });
 
+localStorage.clear();
 
 
