@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4>${item.nama}</h4>
                     <p>ID: ${item.id_produk}</p>
                     <p>Jenis: ${item.jenis}</p>
+                    <p>Harga: Rp ${Number(item.harga).toLocaleString('id-ID')}</p>
                     <p>Jumlah: ${item.jumlah}</p>
                 </div>
             `;
@@ -46,39 +47,42 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Tampilkan animasi loading
         loadingSpinner.classList.remove('hidden');
 
-        // 2. Simulasi proses
+        // 2. Simulasi proses penambahan item
         setTimeout(() => {
             const newItem = {
                 nama: document.getElementById('nama').value,
                 jenis: document.getElementById('jenis').value,
+                harga: document.getElementById('harga').value, // 🆕 Tambah harga
                 id_produk: document.getElementById('id_produk').value,
                 jumlah: document.getElementById('jumlah').value,
-                gambar: gambarDataUrl || '../img/placeholder.png' // Gunakan placeholder jika tidak ada gambar
+                gambar: gambarDataUrl || '../img/placeholder.png' // placeholder default
             };
 
+            // Simpan item ke localStorage
             const existingItems = JSON.parse(localStorage.getItem('addedItems')) || [];
             existingItems.push(newItem);
             localStorage.setItem('addedItems', JSON.stringify(existingItems));
             
+            // 3. Sembunyikan loading, tampilkan notifikasi sukses
             loadingSpinner.classList.add('hidden');
             notifSukses.classList.add('show');
             
+            // 4. Reset form
             addItemForm.reset();
             gambarPreview.src = '../img/placeholder.png';
             gambarDataUrl = '';
             
-            // Perbarui tampilan daftar item di bawah
+            // 5. Perbarui tampilan daftar item
             loadAndRenderItems();
 
-            // 3. Redirect setelah 2 detik
+            // 6. Hilangkan notifikasi sukses setelah 2 detik
             setTimeout(() => {
-                // Ganti 'inventory.html' dengan halaman tujuan Anda
-                window.location.href = 'inventory.html'; 
+                notifSukses.classList.remove('show');
             }, 2000);
 
         }, 1500);
     });
 
-    // Muat item yang sudah ada saat halaman pertama kali dibuka
+    // --- Muat item yang sudah ada saat halaman dibuka ---
     loadAndRenderItems();
 });
