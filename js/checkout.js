@@ -39,14 +39,13 @@ function updatePaymentMethod() {
     if (selectedMethod === 'tunai') {
         tunaiSection.style.display = 'block';
         kartuSection.style.display = 'none';
+        hitungKembalian();
     } else {
         tunaiSection.style.display = 'none';
         kartuSection.style.display = 'block';
         document.getElementById('nilaiKembalian').textContent = '0';
         tombolCheckout.disabled = false;
     }
-    
-    hitungKembalian();
 }
 
 paymentMethod.addEventListener('change', updatePaymentMethod);
@@ -276,12 +275,12 @@ function processCheckout() {
         loadingDesc.textContent = 'Memproses pembayaran kartu...';
         setTimeout(() => {
             simpanTransaksiDanRedirect();
-        }, 3000);
+        }, 1500);
     } else {
         loadingDesc.textContent = 'Memproses pembayaran tunai...';
         setTimeout(() => {
             simpanTransaksiDanRedirect();
-        }, 2000);
+        }, 1000);
     }
 }
 
@@ -290,9 +289,14 @@ function simpanTransaksiDanRedirect() {
     const tunai = parseFloat(document.getElementById('nominalTunai').value) || 0;
     const selectedMethod = paymentMethod.value;
     const namaPembeli = namaPembeliInput.value.trim() || "Umum";
-    
+
     const transaksi = {
-        items: keranjang,
+        items: keranjang.map(item => ({
+            productID: item.productID,
+            name: item.name,
+            price: item.price,
+            jumlah: item.jumlah
+        })),
         total: totalHarga,
         tunai: selectedMethod === 'tunai' ? tunai : totalHarga,
         kembalian: selectedMethod === 'tunai' ? (tunai - totalHarga) : 0,
@@ -301,10 +305,33 @@ function simpanTransaksiDanRedirect() {
         namaKasir: currentCashier,
         waktu: new Date().toLocaleString()
     };
-    
-    localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
 
-    window.location.href = 'printStruk.html';
+    const historyEntry = {
+        item: keranjang.map(item => item.name).join(', '),
+        amount: keranjang.reduce((sum, item) => sum + item.jumlah, 0),
+        price: totalHarga,
+        date: new Date().toISOString().split('T')[0],
+        costumer: namaPembeli,
+        cashier: currentCashier
+    };
+
+    try {
+        localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
+        
+        let history = JSON.parse(localStorage.getItem("History")) || [];
+        history.push(historyEntry);
+        localStorage.setItem("History", JSON.stringify(history));
+
+        sessionStorage.setItem("History", JSON.stringify(history));
+        
+        console.log('Transaksi disimpan:', historyEntry);
+        window.location.href = 'printStruk.html';
+        
+    } catch (error) {
+        console.error('Error menyimpan transaksi:', error);
+        alert('Terjadi kesalahan saat menyimpan transaksi. Silahkan coba lagi.');
+        loadingOverlay.style.display = 'none';
+    }
 }
 
 tombolCheckout.addEventListener('click', processCheckout);

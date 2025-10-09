@@ -19,8 +19,9 @@ function renderInventory(list = products){
       pro.innerHTML = `
       <img class="image" src="${p.image}" alt="${p.name}"><br>
       <div class="info">
-        <span class="name">${p.name}</span><br>
-        <span class="jenis>${p.jenis}</span><br>
+        <span class="name">${p.name}</span>
+        <button class="delete-btn">×</button><br>
+        <span class="jenis">${p.jenis}</span><br>
         <span class="ID">ID: ${p.productID}</span><br>
         <span class="price">Harga: Rp ${p.price},00</span><br>
         <div class="stock-control">
@@ -34,6 +35,7 @@ function renderInventory(list = products){
       const decreaseBtn = pro.querySelector(".decrease");
       const increaseBtn = pro.querySelector(".increase");
       const stockValue = pro.querySelector(".stock-value");
+      const deleteBtn = pro.querySelector(".delete-btn");
 
       decreaseBtn.addEventListener("click", () => {
         if (products[index].amount > 0) {
@@ -47,6 +49,14 @@ function renderInventory(list = products){
         products[index].amount++;
         stockValue.textContent = products[index].amount;
         saveProducts();
+      });
+
+      deleteBtn.addEventListener("click", () => {
+        if (confirm(`Hapus produk "${p.name}" dari inventory?`)) {
+          products.splice(index, 1);
+          saveProducts();
+          renderInventory();
+        }
       });
 
       inventory.appendChild(pro);
