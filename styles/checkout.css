@@ -1,157 +1,163 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+  --maroon: #800000;
+  --white: #ffffff;
+  --hover: #a32626;
+  --gray: #f5f5f5;
 }
 
-body {
+.checkout-container {
     display: flex;
-    height: 100vh;
-    background-color: white;
+    gap: 20px;
+    height: 100%;
+    padding: 10px;
 }
 
 .kiri {
-    width: 70%;
+    flex: 3;
+    background: var(--white);
+    border-radius: 10px;
     padding: 20px;
-    background-color: white;
-    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
 }
 
-.search-container {
+.search-bar {
     display: flex;
+    align-items: center;
     gap: 10px;
     margin-bottom: 20px;
-    padding: 0 20px;
+    padding: 10px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
-#searchInput {
+.search-bar input {
     flex: 1;
-    padding: 12px 15px;
-    border: 2px solid #B21011;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
-#searchInput:focus {
-    border-color: #FFBA01;
-    box-shadow: 0 0 5px rgba(255, 186, 1, 0.5);
-}
-
-#searchInput::placeholder {
-    color: #999;
-}
-
-#searchButton {
-    padding: 12px 20px;
-    background-color: #B21011;
-    color: white;
+.search-bar button {
+    padding: 10px 20px;
+    background: var(--maroon);
+    color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
 }
 
-#searchButton:hover {
-    background-color: #9E172F;
-}
-
-.kanan {
-    width: 30%;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-left: 2px solid #B21011;
-    display: flex;
-    flex-direction: column;
+.search-bar button:hover {
+    background: var(--hover);
 }
 
 .daftar-item {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
-  gap: 40px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    overflow-y: auto;
+    flex: 1;
+    padding: 10px;
 }
 
 .checkoutSlot {
-    background: white;
-    border: 2px solid #B21011;
-    border-radius: 15px;
+    background: var(--white);
+    border: 2px solid var(--maroon);
+    border-radius: 10px;
     display: flex;
-    font-size: 20px;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 15px;
+    padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(178, 16, 17, 0.1);
+    box-shadow: 0 2px 8px rgba(128, 0, 0, 0.1);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
 }
 
 .checkoutSlot:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(178, 16, 17, 0.2);
-    border-color: #9E172F;
-    z-index: 10;
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
+    border-color: var(--hover);
 }
 
 .checkoutSlot:active {
-    transform: scale(1.02);
-    background-color: #FFBA01;
+    transform: scale(1.01);
+    background-color: #fff8e1;
 }
 
 .checkoutSlot img {
-    flex: 1;
-    max-width: 150px;
-    max-height: 150px;
-    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-.checkoutSlot .info{
-    flex:2;
+.checkoutSlot .info {
+    flex: 2;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .checkoutSlot .info .name {
     font-weight: bold;
-    font-size: 28px;
-    color: #373737;
-    margin-bottom: 8px;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.checkoutSlot .info .ID{
+.checkoutSlot .info .ID {
     opacity: 0.6;
-    color: #373737;
-    font-size: 16px;
-    margin-bottom: 8px;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 
 .checkoutSlot .info .price {
     font-weight: bold;
-    color: #B21011;
-    font-size: 22px;
+    color: var(--maroon);
+    font-size: 16px;
+}
+
+.kanan {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 350px;
 }
 
 .tampilan-stroke {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
     flex: 1;
-    margin-bottom: 20px;
+}
+
+.checkouty {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
 }
 
 .texte {
-    color: #B21011;
-    font-size: 24px;
+    color: var(--maroon);
+    font-size: 18px;
     margin-bottom: 15px;
-    border-bottom: 2px solid #FFBA01;
+    border-bottom: 2px solid var(--maroon);
     padding-bottom: 8px;
+    font-weight: bold;
 }
 
 .daftar-pembelian {
@@ -165,12 +171,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 12px;
     border-bottom: 1px solid #eee;
-    background-color: white;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border-left: 4px solid #B21011;
+    background-color: var(--white);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--maroon);
 }
 
 .info-item {
@@ -179,141 +185,139 @@ body {
 
 .info-item p:first-child {
     font-weight: bold;
-    color: #373737;
-    margin-bottom: 5px;
+    color: #333;
+    margin-bottom: 3px;
+    font-size: 14px;
 }
 
 .info-item p:last-child {
-    color: #B21011;
+    color: var(--maroon);
     font-weight: 500;
+    font-size: 12px;
 }
 
 .kontrol-jumlah {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .kontrol-jumlah button {
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
     border: none;
-    background-color: #B21011;
+    background-color: var(--maroon);
     color: white;
     border-radius: 50%;
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 12px;
     transition: background-color 0.3s;
 }
 
 .kontrol-jumlah button:hover {
-    background-color: #9E172F;
+    background-color: var(--hover);
 }
 
 .kontrol-jumlah button.hapus {
-    background-color: #7C0922;
-    font-size: 18px;
+    background-color: #d32f2f;
+    font-size: 14px;
 }
 
 .kontrol-jumlah button.hapus:hover {
-    background-color: #5a0618;
+    background-color: #b71c1c;
 }
 
 .kontrol-jumlah span {
     font-weight: bold;
-    color: #373737;
-    min-width: 30px;
+    color: #333;
+    min-width: 25px;
     text-align: center;
-}
-
-.checkouty {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(178, 16, 17, 0.1);
-    border: 1px solid #B21011;
+    font-size: 14px;
 }
 
 .total-info {
-    margin: 20px 0;
+    margin: 15px 0;
     padding: 15px;
-    background-color: #f9f9f9;
+    background-color: var(--gray);
     border-radius: 8px;
-    border-left: 4px solid #FFBA01;
+    border-left: 4px solid var(--maroon);
 }
 
 .total-info p {
     margin: 8px 0;
     font-weight: bold;
-    color: #373737;
+    color: #333;
+    font-size: 14px;
 }
 
 .total-info span {
-    color: #B21011;
+    color: var(--maroon);
 }
 
 .input-tunai {
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .input-tunai label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #373737;
+    color: #333;
+    font-size: 14px;
 }
 
 .input-tunai input {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #B21011;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
     transition: border-color 0.3s;
 }
 
 .input-tunai input:focus {
     outline: none;
-    border-color: #FFBA01;
-    box-shadow: 0 0 5px rgba(255, 186, 1, 0.5);
+    border-color: var(--maroon);
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.3);
 }
 
 .kembalian {
-    margin: 20px 0;
-    padding: 15px;
+    margin: 15px 0;
+    padding: 12px;
     background-color: #e8f5e9;
-    border-radius: 8px;
-    border-left: 4px solid #4CAF50;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
     font-weight: bold;
-    color: #373737;
+    color: #333;
+    font-size: 14px;
 }
 
 .kembalian span {
-    color: #2E7D32;
+    color: #2e7d32;
 }
 
 .tombol-input {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #B21011;
+    padding: 12px;
+    background-color: var(--maroon);
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
+    font-size: 16px;
+    margin-top: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
     border: none;
 }
 
 .tombol-input:hover {
-    background-color: #9E172F;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(178, 16, 17, 0.3);
+    background-color: var(--hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(128, 0, 0, 0.2);
 }
 
 .tombol-input:disabled {
@@ -324,21 +328,39 @@ body {
 }
 
 .daftar-pembelian::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 .daftar-pembelian::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 .daftar-pembelian::-webkit-scrollbar-thumb {
-    background: #B21011;
-    border-radius: 4px;
+    background: var(--maroon);
+    border-radius: 3px;
 }
 
 .daftar-pembelian::-webkit-scrollbar-thumb:hover {
-    background: #9E172F;
+    background: var(--hover);
+}
+
+.daftar-item::-webkit-scrollbar {
+    width: 6px;
+}
+
+.daftar-item::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.daftar-item::-webkit-scrollbar-thumb {
+    background: var(--maroon);
+    border-radius: 3px;
+}
+
+.daftar-item::-webkit-scrollbar-thumb:hover {
+    background: var(--hover);
 }
 
 .no-results {
@@ -347,4 +369,41 @@ body {
     font-style: italic;
     padding: 40px;
     grid-column: 1 / -1;
+    background: var(--white);
+    border-radius: 8px;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .kanan {
+        min-width: auto;
+    }
+    
+    .daftar-item {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+    }
+    
+    .checkoutSlot {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .checkoutSlot img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .checkoutSlot .info .name {
+        font-size: 16px;
+    }
+    
+    .checkoutSlot .info .price {
+        font-size: 14px;
+    }
 }
