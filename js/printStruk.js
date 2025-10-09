@@ -1,8 +1,5 @@
 const transaksiData = JSON.parse(localStorage.getItem('transaksiTerakhir'));
 
-let customerName = 'Umum';
-let cashierName = 'Kasir';
-
 const transactionDateElement = document.getElementById('tanggalTransaksi');
 const cashierNameElement = document.getElementById('namaKasir');
 const customerNameElement = document.getElementById('namaPembeli');
@@ -28,27 +25,6 @@ function formatStrukDate(dateString) {
     });
 }
 
-function saveToHistory() {
-    let history = JSON.parse(localStorage.getItem("History")) || [];
-
-    const historyEntry = {
-        item: transaksiData.items.map(item => item.name).join(', '),
-        amount: transaksiData.items.reduce((sum, item) => sum + item.jumlah, 0),
-        price: transaksiData.total,
-        date: new Date().toISOString().split('T')[0],
-        costumer: customerName,
-        cashier: cashierName
-    };
-
-    history.push(historyEntry);
-
-    localStorage.setItem("History", JSON.stringify(history));
-
-    sessionStorage.setItem("History", JSON.stringify(history));
-    
-    console.log('Transaksi disimpan ke history:', historyEntry);
-}
-
 function loadTransactionData() {
     if (!transaksiData) {
         alert('Tidak ada data transaksi! Kembali ke halaman checkout.');
@@ -57,8 +33,8 @@ function loadTransactionData() {
     }
 
     transactionDateElement.textContent = formatStrukDate(transaksiData.waktu);
-    cashierNameElement.textContent = cashierName;
-    customerNameElement.textContent = customerName;
+    cashierNameElement.textContent = transaksiData.namaKasir || 'Kasir';
+    customerNameElement.textContent = transaksiData.namaPembeli || 'Umum';
 
     itemListElement.innerHTML = '';
     transaksiData.items.forEach(item => {
@@ -78,8 +54,6 @@ function loadTransactionData() {
     totalAmountElement.textContent = formatCurrency(transaksiData.total);
     cashAmountElement.textContent = formatCurrency(transaksiData.tunai);
     changeAmountElement.textContent = formatCurrency(transaksiData.kembalian);
-
-    saveToHistory();
 }
 
 function printStruk() {
