@@ -101,3 +101,16 @@
   .search-bar button:hover {
     background: #a32626;
   }
+
+  .jenis {
+    padding: 8px 13px;
+    border: none;
+    background: #800000;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .jenis:hover {
+    background: #a32626;
+  }
