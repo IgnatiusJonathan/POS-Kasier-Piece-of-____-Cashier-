@@ -39,7 +39,7 @@
       <li><a href="membership.html" data-title="Membership">Membership</a></li>
       <li><a href="history.html" data-title="History">History</a></li>
       <li><a href="checkout.html" data-title="Checkouts">Checkouts</a></li>
-      <li><a href="tambahItem.html" data-title="TambahItem">Tambah Item</a></li>
+      <li><a href="../TambahItem/tambahItem.html" data-title="TambahItem">Tambah Item</a></li>
     </ul>
   </aside>
 
@@ -50,6 +50,16 @@
       <input type="text" id="searchInput" placeholder="Cari produk..." />
       <button id="searchBtn">Search</button>
     </div>
+    <!-- filter jenis -->
+    <select id="jenis" name="jenis" class="jenis">
+      <option value="" disabled selected>-- Pilih Jenis --</option>
+      <option value="Makanan">Makanan</option>
+      <option value="Minuman">Minuman</option>
+      <option value="Personal Care">Personal Care</option>
+      <option value="Households">Households</option>
+      <option value="Produk Anak">Produk Anak</option>
+      <option value="Musiman">Musiman</option>
+    </select>
     <!-- Product -->
     <div class="inventory" id="inventory"></div>
   </main>

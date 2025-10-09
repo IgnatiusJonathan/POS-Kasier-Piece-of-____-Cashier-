@@ -2,8 +2,54 @@ let daftarItem = document.getElementById("daftarItem");
 let products = JSON.parse(localStorage.getItem("ProductID")) || [];
 let searchInput = document.getElementById("searchInput");
 let searchButton = document.getElementById("searchButton");
+let paymentMethod = document.getElementById("paymentMethod");
+let tunaiSection = document.getElementById("tunaiSection");
+let kartuSection = document.getElementById("kartuSection");
+let tombolCheckout = document.getElementById("tombolCheckout");
+let loadingOverlay = document.getElementById("loadingOverlay");
+let loadingDesc = document.getElementById("loadingDesc");
+let namaPembeliInput = document.getElementById("namaPembeli");
+let cashierNameElement = document.querySelector(".cashier-name");
 
 let keranjang = [];
+let currentCashier = "Kasir";
+
+function getCashierData() {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    
+    if (loggedInUser) {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users.find(u => u.employeeID === loggedInUser);
+        
+        if (user) {
+            currentCashier = user.name || user.employeeID || "Kasir";
+        }
+    }
+
+    if (cashierNameElement) {
+        cashierNameElement.textContent = currentCashier + " ▼";
+    }
+    
+    return currentCashier;
+}
+
+function updatePaymentMethod() {
+    const selectedMethod = paymentMethod.value;
+    
+    if (selectedMethod === 'tunai') {
+        tunaiSection.style.display = 'block';
+        kartuSection.style.display = 'none';
+    } else {
+        tunaiSection.style.display = 'none';
+        kartuSection.style.display = 'block';
+        document.getElementById('nilaiKembalian').textContent = '0';
+        tombolCheckout.disabled = false;
+    }
+    
+    hitungKembalian();
+}
+
+paymentMethod.addEventListener('change', updatePaymentMethod);
 
 function printInventory(filteredProducts = null) {
     daftarItem.innerHTML = "";
@@ -60,9 +106,6 @@ searchInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         searchProducts();
     }
-});
-
-searchInput.addEventListener('input', function() {
 });
 
 function tambahKeKeranjang(barang) {
@@ -189,47 +232,87 @@ function hitungKembalian() {
     const tombolCheckout = document.getElementById('tombolCheckout');
     
     const totalHarga = keranjang.reduce((total, item) => total + (item.price * item.jumlah), 0);
-    const tunai = parseFloat(nominalTunai.value) || 0;
+    const selectedMethod = paymentMethod.value;
     
-    if (tunai >= totalHarga) {
-        nilaiKembalian.textContent = (tunai - totalHarga).toLocaleString();
-        tombolCheckout.disabled = false;
+    if (selectedMethod === 'tunai') {
+        const tunai = parseFloat(nominalTunai.value) || 0;
+        
+        if (tunai >= totalHarga) {
+            nilaiKembalian.textContent = (tunai - totalHarga).toLocaleString();
+            tombolCheckout.disabled = false;
+        } else {
+            nilaiKembalian.textContent = '0';
+            tombolCheckout.disabled = true;
+        }
     } else {
         nilaiKembalian.textContent = '0';
-        tombolCheckout.disabled = true;
+        tombolCheckout.disabled = false;
     }
 }
 
 document.getElementById('nominalTunai').addEventListener('input', hitungKembalian);
 
-document.getElementById('tombolCheckout').addEventListener('click', function(e) {
+function processCheckout() {
     if (keranjang.length === 0) {
-        e.preventDefault();
         alert('Keranjang belanja kosong!');
         return;
     }
     
-    const tunai = parseFloat(document.getElementById('nominalTunai').value) || 0;
+    const selectedMethod = paymentMethod.value;
     const totalHarga = keranjang.reduce((total, item) => total + (item.price * item.jumlah), 0);
     
-    if (tunai < totalHarga) {
-        e.preventDefault();
-        alert('Nominal tunai tidak mencukupi!');
-        return;
+    if (selectedMethod === 'tunai') {
+        const tunai = parseFloat(document.getElementById('nominalTunai').value) || 0;
+        
+        if (tunai < totalHarga) {
+            alert('Nominal tunai tidak mencukupi!');
+            return;
+        }
     }
 
+    loadingOverlay.style.display = 'flex';
+    
+    if (selectedMethod === 'kartu') {
+        loadingDesc.textContent = 'Memproses pembayaran kartu...';
+        setTimeout(() => {
+            simpanTransaksiDanRedirect();
+        }, 3000);
+    } else {
+        loadingDesc.textContent = 'Memproses pembayaran tunai...';
+        setTimeout(() => {
+            simpanTransaksiDanRedirect();
+        }, 2000);
+    }
+}
+
+function simpanTransaksiDanRedirect() {
+    const totalHarga = keranjang.reduce((total, item) => total + (item.price * item.jumlah), 0);
+    const tunai = parseFloat(document.getElementById('nominalTunai').value) || 0;
+    const selectedMethod = paymentMethod.value;
+    const namaPembeli = namaPembeliInput.value.trim() || "Umum";
+    
     const transaksi = {
         items: keranjang,
         total: totalHarga,
-        tunai: tunai,
-        kembalian: tunai - totalHarga,
+        tunai: selectedMethod === 'tunai' ? tunai : totalHarga,
+        kembalian: selectedMethod === 'tunai' ? (tunai - totalHarga) : 0,
+        metodePembayaran: selectedMethod,
+        namaPembeli: namaPembeli,
+        namaKasir: currentCashier,
         waktu: new Date().toLocaleString()
     };
     
     localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
-});
+
+    window.location.href = 'printStruk.html';
+}
+
+tombolCheckout.addEventListener('click', processCheckout);
 
 document.addEventListener('DOMContentLoaded', function() {
+    getCashierData();
+    
     printInventory();
     perbaruiKeranjang();
+    updatePaymentMethod();
 });
