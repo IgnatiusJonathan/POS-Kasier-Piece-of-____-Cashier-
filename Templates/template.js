@@ -5,6 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileMenu = document.getElementById("profileMenu");
   const dropdownMenu = document.getElementById("dropdownMenu");
 
+  const userID = localStorage.getItem("loggedInUser");
+  if (sidebar && userID === "0001") {
+    const ul = sidebar.querySelector("ul");
+    const existingWorkerMenu = ul.querySelector('[data-title="Worker Management"]');
+    if (!existingWorkerMenu) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "../Worker-management/workerManagement.html";
+      a.dataset.title = "Worker Management";
+      a.textContent = "Worker Management";
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+  }
+
   // icon
   toggleBtn.style.backgroundImage = "url('../img/sidebar_arrow_left.png')";
 
@@ -60,3 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
