@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             const newItem = {
-                nama: document.getElementById('nama').value,
+                nama: document.getElementById('name').value,
                 jenis: document.getElementById('jenis').value,
                 price: document.getElementById('price').value,
-                productID: document.getElementById('ProductID').value,
+                productID: document.getElementById('productID').value,
                 amount: document.getElementById('amount').value,
                 image: gambarDataUrl || '../img/placeholder.png'
             };

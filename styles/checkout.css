@@ -502,6 +502,33 @@
     cursor: pointer;
 }
 
+.input-pembeli {
+    margin: 15px 0;
+}
+
+.input-pembeli label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.input-pembeli input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-pembeli input:focus {
+    outline: none;
+    border-color: var(--maroon);
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.3);
+}
+
 @media (max-width: 768px) {
     .checkout-container {
         flex-direction: column;
