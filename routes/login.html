@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - SSO</title>
+    <link rel="stylesheet" href="../Templates/template.css">
     <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+    <div class="header-left">
+      <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
+    </div>
+    </header>
+    <!-- Main -->
+    <main>
     <h1>Enter your account info</h1>
     <form id="loginForm">
         <label>Employee ID: </label>
@@ -16,6 +25,7 @@
         <button type="submit">Login</button>
     </form>
     <p id="loginMsg"></p>
+    </main>
     <script src="../js/auth.js"></script>
 </body>
 </html>
