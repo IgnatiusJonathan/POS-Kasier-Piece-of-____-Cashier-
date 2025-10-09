@@ -10,6 +10,8 @@
     gap: 20px;
     height: 100%;
     padding: 10px;
+    position: relative;
+    overflow: visible;
 }
 
 .kiri {
@@ -20,6 +22,8 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: visible;
 }
 
 .search-bar {
@@ -58,11 +62,12 @@
 
 .daftar-item {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     overflow-y: auto;
     flex: 1;
     padding: 10px;
+    position: relative;
 }
 
 .checkoutSlot {
@@ -77,12 +82,16 @@
     box-shadow: 0 2px 8px rgba(128, 0, 0, 0.1);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
+    min-height: 120px;
 }
 
 .checkoutSlot:hover {
     transform: scale(1.03);
-    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(128, 0, 0, 0.3);
     border-color: var(--hover);
+    z-index: 10;
 }
 
 .checkoutSlot:active {
@@ -91,10 +100,11 @@
 }
 
 .checkoutSlot img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .checkoutSlot .info {
@@ -103,27 +113,32 @@
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    line-height: 1.5;
+    line-height: 1.4;
+    min-width: 0;
 }
 
 .checkoutSlot .info .name {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
 
 .checkoutSlot .info .ID {
     opacity: 0.6;
     color: #666;
-    font-size: 12px;
-    margin-bottom: 5px;
+    font-size: 11px;
+    margin-bottom: 4px;
 }
 
 .checkoutSlot .info .price {
     font-weight: bold;
     color: var(--maroon);
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .kanan {
@@ -498,25 +513,26 @@
     }
     
     .daftar-item {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 15px;
     }
     
     .checkoutSlot {
         padding: 12px;
         gap: 12px;
+        min-height: 100px;
     }
     
     .checkoutSlot img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
     
     .checkoutSlot .info .name {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .checkoutSlot .info .price {
-        font-size: 14px;
+        font-size: 12px;
     }
 }

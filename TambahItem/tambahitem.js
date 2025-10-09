@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const gambarPreview = document.getElementById('gambar-preview');
     const loadingSpinner = document.getElementById('loading-spinner');
     const listItemContainer = document.getElementById('list-item-baru');
-
     let gambarDataUrl = '';
 
-    // --- Fungsi untuk memuat dan menampilkan item dari Local Storage ---
+    // --- Fungsi untuk memuat dan menampilkan item dari localStorage ---
     const loadAndRenderItems = () => {
-        const items = JSON.parse(localStorage.getItem('productID')) || [];
+        const items = JSON.parse(localStorage.getItem('ProductID')) || [];
         listItemContainer.innerHTML = '';
+
         items.forEach(item => {
             const itemCard = `
                 <div class="item-card">
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- Logika untuk Preview Gambar ---
+    
     gambarInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -39,42 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Logika saat Form di-Submit ---
+
     addItemForm.addEventListener('submit', (event) => {
         event.preventDefault();
+        loadingSpinner.classList.remove('hidden'); // tampilkan spinner
 
-        // 1. Tampilkan animasi loading
-        loadingSpinner.classList.remove('hidden');
-
-        // 2. Simulasi proses penambahan item
         setTimeout(() => {
             const newItem = {
                 nama: document.getElementById('nama').value,
                 jenis: document.getElementById('jenis').value,
-                price: document.getElementById('price').value, 
-                productID: document.getElementById('productID').value,
+                price: document.getElementById('price').value,
+                productID: document.getElementById('ProductID').value,
                 amount: document.getElementById('amount').value,
-                image: gambarDataUrl || '../img/placeholder.png' 
+                image: gambarDataUrl || '../img/placeholder.png'
             };
 
-            // Simpan item ke localStorage
-            const existingItems = JSON.parse(localStorage.getItem('productID')) || [];
+            // Ambil data lama dari localStorage (key: ProductID)
+            const existingItems = JSON.parse(localStorage.getItem('ProductID')) || [];
             existingItems.push(newItem);
-            localStorage.setItem('productID', JSON.stringify(existingItems));
-            
-            
+
+            // Simpan lagi ke localStorage
+            localStorage.setItem('ProductID', JSON.stringify(existingItems));
+
+            // Sembunyikan loading & reset form
             loadingSpinner.classList.add('hidden');
             addItemForm.reset();
             gambarPreview.src = '../img/placeholder.png';
             gambarDataUrl = '';
-            
-  
+
+            alert('Item berhasil ditambahkan!');
             loadAndRenderItems();
-
-
         }, 1500);
     });
 
-    // --- Muat item yang sudah ada saat halaman dibuka ---
+    // --- Saat halaman dimuat ---
     loadAndRenderItems();
 });
+
