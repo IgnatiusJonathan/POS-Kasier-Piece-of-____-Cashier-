@@ -5,7 +5,6 @@ let searchButton = document.getElementById("searchButton");
 
 let keranjang = [];
 
-// Fungsi untuk menampilkan inventory dengan filter
 function printInventory(filteredProducts = null) {
     daftarItem.innerHTML = "";
 
@@ -40,12 +39,10 @@ function printInventory(filteredProducts = null) {
     }
 }
 
-// Fungsi untuk mencari barang berdasarkan nama
 function searchProducts() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     
     if (searchTerm === '') {
-        // Jika search kosong, tampilkan semua produk
         printInventory();
         return;
     }
@@ -57,20 +54,15 @@ function searchProducts() {
     printInventory(filteredProducts);
 }
 
-// Event listener untuk tombol search
 searchButton.addEventListener('click', searchProducts);
 
-// Event listener untuk enter pada input search
 searchInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         searchProducts();
     }
 });
 
-// Event listener untuk input real-time (opsional)
 searchInput.addEventListener('input', function() {
-    // Jika ingin search real-time, hapus komentar di bawah
-    // searchProducts();
 });
 
 function tambahKeKeranjang(barang) {
