@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!existingWorkerMenu) {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = "../Worker-Management/workerManagement.html";
+      a.href = "../Worker-management/workerManagement.html";
       a.dataset.title = "Worker Management";
       a.textContent = "Worker Management";
       li.appendChild(a);
@@ -75,5 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
