@@ -374,6 +374,119 @@
     margin: 20px;
 }
 
+.metode-pembayaran {
+    margin: 15px 0;
+}
+
+.metode-pembayaran label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.payment-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    transition: border-color 0.3s;
+}
+
+.payment-select:focus {
+    outline: none;
+    border-color: var(--maroon);
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.3);
+}
+
+.info-kartu {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    border-left: 4px solid #2196f3;
+}
+
+.kartu-info p:first-child {
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.kartu-desc {
+    color: #666;
+    font-size: 12px;
+    margin: 0;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loading-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--maroon);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-content p {
+    margin: 5px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.loading-desc {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+}
+
+.tombol-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--maroon);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .checkout-container {
         flex-direction: column;
