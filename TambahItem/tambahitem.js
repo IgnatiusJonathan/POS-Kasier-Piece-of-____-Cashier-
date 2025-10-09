@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const newItem = {
                 nama: document.getElementById('nama').value,
                 jenis: document.getElementById('jenis').value,
-                harga: document.getElementById('harga').value, // 🆕 Tambah harga
-                id_produk: document.getElementById('id_produk').value,
-                jumlah: document.getElementById('jumlah').value,
-                gambar: gambarDataUrl || '../img/placeholder.png' // placeholder default
+                price: document.getElementById('harga').value, 
+                productID: document.getElementById('id_produk').value,
+                amount: document.getElementById('jumlah').value,
+                image: gambarDataUrl || '../img/placeholder.png' 
             };
 
             // Simpan item ke localStorage

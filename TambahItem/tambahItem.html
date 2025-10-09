@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Item</title>
+    <title>Tambah Item | TARUMART</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../Templates/template.css"> 
     <link rel="stylesheet" href="tambahitem.css">
 </head>
+
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-left">
-            <h1><span class="brand">TARUMART</span> <span class="tagline">Kasir</span></h1>
+            <h1>
+                <span class="brand">TARUMART</span> 
+                <span class="tagline">Kasir</span>
+            </h1>
         </div>
+
         <div class="header-right">
             <div class="employee-login" id="profileMenu">
                 <span class="cashier-name">Cashier Name ▼</span>
                 <div class="profile-icon">👤</div>
             </div>
+
             <div class="dropdown" id="dropdownMenu">
                 <a href="../routes/login.html">
                     <img src="../img/logout.png" alt="Logout" class="dropdown-icon">
@@ -26,6 +35,7 @@
         </div>
     </header>
 
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <button class="toggle-btn" id="toggleBtn"></button>
         <ul>
@@ -37,75 +47,73 @@
         </ul>
     </aside>
 
+    <!-- Main Content -->
     <main class="content" id="content">
-    <h2>Tambah Item Baru</h2>
+        <h2>Tambah Item Baru</h2>
 
-    <form id="addItemForm" class="form-container">
-        <div class="form-group">
-            <label for="nama">Nama Item:</label>
-            <input type="text" id="nama" name="nama" required>
-        </div>
-        <div class="form-group">
-            <label for="jenis">Jenis:</label>
-            <select id="jenis" name="jenis" required>
-                <option value="" disabled selected>-- Pilih Jenis --</option>
-                <option value="Makanan">Makanan</option>
-                <option value="Minuman">Minuman</option>
-                <option value="Personal Care">Personal Care</option>
-                <option value="Households">Households</option>
-                <option value="Produk Anak">Produk Anak</option>
-                <option value="Musiman">Musiman</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-    <label for="harga">Harga (IDR):</label>
-    <input type="number" id="harga" name="harga"  required>
-</div>
-        <div class="form-group">
-            <label for="id_produk">ID Produk:</label>
-            <input type="text" id="id_produk" name="id_produk" required>
-        </div>
-        <div class="form-group">
-            <label for="jumlah">Jumlah:</label>
-            <input type="number" id="jumlah" name="jumlah" required>
-        </div>
-        
-        <div class="form-group">
-    <label for="gambar">Gambar Item:</label>
-</div>
+        <form id="addItemForm" class="form-container">
+            <!-- Nama Item -->
+            <div class="form-group">
+                <label for="nama">Nama Item:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
 
-<div class="form-group-image">
-    <img id="gambar-preview" src="../img/placeholder.png" >
-    <input type="file" id="gambar" name="gambar" accept="image/*" required>
-    <label for="gambar" class="file-label">Pilih Gambar</label>
-</div>
+            <!-- Jenis Item -->
+            <div class="form-group">
+                <label for="jenis">Jenis:</label>
+                <select id="jenis" name="jenis" required>
+                    <option value="" disabled selected>-- Pilih Jenis --</option>
+                    <option value="Makanan">Makanan</option>
+                    <option value="Minuman">Minuman</option>
+                    <option value="Personal Care">Personal Care</option>
+                    <option value="Households">Households</option>
+                    <option value="Produk Anak">Produk Anak</option>
+                    <option value="Musiman">Musiman</option>
+                </select>
+            </div>
 
-        
-        <div class="submit-group">
-            <input type="submit" value="Tambah Item">
-        </div>
-    </form>
+            <!-- Harga -->
+            <div class="form-group">
+                <label for="harga">Harga (IDR):</label>
+                <input type="number" id="harga" name="harga" required>
+            </div>
 
-    <hr class="divider">
-    <h3>ITEM DITAMBAHKAN :</h3>
-    <div id="list-item-baru" class="item-list-container">
-        </div>
-</main>
+            <!-- ID Produk -->
+            <div class="form-group">
+                <label for="id_produk">ID Produk:</label>
+                <input type="text" id="id_produk" name="id_produk" required>
+            </div>
 
+            <!-- Jumlah -->
+            <div class="form-group">
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" required>
+            </div>
+
+            <!-- Upload Gambar -->
+            <div class="form-group">
+                <label for="gambar">Gambar Item:</label>
+            </div>
+            <div class="form-group-image">
+                <img id="gambar-preview" src="../img/placeholder.png" alt="Preview Gambar">
+                <input type="file" id="gambar" name="gambar" accept="image/*" required>
+                <label for="gambar" class="file-label">Pilih Gambar</label>
+            </div>
+
+            <!-- Tombol Submit -->
+            <div class="submit-group">
+                <input type="submit" value="Tambah Item">
+            </div>
+        </form>
+
+        <hr class="divider">
+
+        <!-- Daftar Item yang Baru Ditambahkan -->
+        <section>
+            <h3>Item Ditambahkan:</h3>
+            <div id="list-item-baru" class="item-list-container"></div>
+        </section>
+    </main>
+
+    <!-- Loading & Notifikasi -->
     <div id="loading-spinner" class="spinner-container hidden">
-        <div class="spinner"></div>
-        <p>Menambahkan item...</p>
-    </div>
-    <div id="notif-sukses" class="notif hidden">
-        ✅ Item berhasil ditambahkan!
-    </div>
-    
-    <footer class="footer">
-        <p>© Copyright TARUMART 2025-2026</p>
-    </footer>
-
-    <script src="../Templates/template.js"></script>
-    <script src="tambahitem.js"></script>
-</body>
-</html>
