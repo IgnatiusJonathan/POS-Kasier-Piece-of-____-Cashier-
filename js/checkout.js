@@ -39,14 +39,13 @@ function updatePaymentMethod() {
     if (selectedMethod === 'tunai') {
         tunaiSection.style.display = 'block';
         kartuSection.style.display = 'none';
+        hitungKembalian();
     } else {
         tunaiSection.style.display = 'none';
         kartuSection.style.display = 'block';
         document.getElementById('nilaiKembalian').textContent = '0';
         tombolCheckout.disabled = false;
     }
-    
-    hitungKembalian();
 }
 
 paymentMethod.addEventListener('change', updatePaymentMethod);
@@ -276,12 +275,12 @@ function processCheckout() {
         loadingDesc.textContent = 'Memproses pembayaran kartu...';
         setTimeout(() => {
             simpanTransaksiDanRedirect();
-        }, 3000);
+        }, 1500);
     } else {
         loadingDesc.textContent = 'Memproses pembayaran tunai...';
         setTimeout(() => {
             simpanTransaksiDanRedirect();
-        }, 2000);
+        }, 1000);
     }
 }
 
@@ -292,7 +291,12 @@ function simpanTransaksiDanRedirect() {
     const namaPembeli = namaPembeliInput.value.trim() || "Umum";
     
     const transaksi = {
-        items: keranjang,
+        items: keranjang.map(item => ({
+            productID: item.productID,
+            name: item.name,
+            price: item.price,
+            jumlah: item.jumlah
+        })),
         total: totalHarga,
         tunai: selectedMethod === 'tunai' ? tunai : totalHarga,
         kembalian: selectedMethod === 'tunai' ? (tunai - totalHarga) : 0,
@@ -302,9 +306,14 @@ function simpanTransaksiDanRedirect() {
         waktu: new Date().toLocaleString()
     };
     
-    localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
-
-    window.location.href = 'printStruk.html';
+    try {
+        localStorage.setItem('transaksiTerakhir', JSON.stringify(transaksi));
+        window.location.href = 'printStruk.html';
+    } catch (error) {
+        console.error('Error menyimpan transaksi:', error);
+        alert('Terjadi kesalahan saat menyimpan transaksi. Silahkan coba lagi.');
+        loadingOverlay.style.display = 'none';
+    }
 }
 
 tombolCheckout.addEventListener('click', processCheckout);
