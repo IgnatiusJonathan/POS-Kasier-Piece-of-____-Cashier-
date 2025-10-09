@@ -47,6 +47,6 @@ if (daftarForm) {
     msg.textContent = "Pendaftaran berhasil!";
     msg.style.color = "green";
 
-    setTimeout(() => (window.location.href = "index.html"), 1500);
+    setTimeout(() => (window.location.href = "../Membership/membership.html"), 1500);
   });
 }
