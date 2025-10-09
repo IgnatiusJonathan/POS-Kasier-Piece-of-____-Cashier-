@@ -114,3 +114,17 @@
   .jenis:hover {
     background: #a32626;
   }
+
+  .delete-btn {
+    background: transparent;
+    border: none;
+    color: #a32626;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: color 0.2s ease;
+  }
+  
+  .delete-btn:hover {
+    color: #ff0000;
+  }
