@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const gambarInput = document.getElementById('gambar');
     const gambarPreview = document.getElementById('gambar-preview');
     const loadingSpinner = document.getElementById('loading-spinner');
-    const notifSukses = document.getElementById('notif-sukses');
     const listItemContainer = document.getElementById('list-item-baru');
 
     let gambarDataUrl = '';
@@ -52,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const newItem = {
                 nama: document.getElementById('nama').value,
                 jenis: document.getElementById('jenis').value,
-                price: document.getElementById('harga').value, 
-                productID: document.getElementById('id_produk').value,
-                amount: document.getElementById('jumlah').value,
+                price: document.getElementById('price').value, 
+                productID: document.getElementById('productID').value,
+                amount: document.getElementById('amount').value,
                 image: gambarDataUrl || '../img/placeholder.png' 
             };
 
@@ -65,9 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             loadingSpinner.classList.add('hidden');
-            notifSukses.classList.add('show');
-            
-  
             addItemForm.reset();
             gambarPreview.src = '../img/placeholder.png';
             gambarDataUrl = '';
@@ -75,9 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
             loadAndRenderItems();
 
-            setTimeout(() => {
-                notifSukses.classList.remove('show');
-            }, 2000);
 
         }, 1500);
     });
