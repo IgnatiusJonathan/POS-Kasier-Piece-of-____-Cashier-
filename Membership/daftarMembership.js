@@ -6,7 +6,8 @@ if (daftarForm) {
     const fullName = document.getElementById("signupName").value.trim();
     const birthday = document.getElementById("signupBirthday").value.trim();
     const phone = document.getElementById("signupPhone").value.trim();
-
+    const email = document.getElementById("signupEmail").value.trim();
+    
     let msg = document.getElementById("signupMsg");
     if (!msg) {
       msg = document.createElement("p");
@@ -14,12 +15,19 @@ if (daftarForm) {
       daftarForm.appendChild(msg);
     }
 
-    if (!fullName || !birthday || !phone) {
+    if (!email || !fullName || !birthday || !phone) {
       msg.textContent = "Semua field harus diisi!";
       msg.style.color = "red";
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      msg.textContent = "Well that doesn't sounds like an email.";
+      msg.style.color = "red";
+      return;
+    }
+    
     const nameRegex = /^[A-Za-z\s]{3,32}$/;
     if (!nameRegex.test(fullName)) {
       msg.textContent = "Nama harus terdiri dari huruf saja (3–32 karakter).";
