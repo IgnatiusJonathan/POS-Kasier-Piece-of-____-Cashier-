@@ -50,22 +50,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
-
-  // WAKTU KERJA REAL-TIME
-  const workTimeElement = document.getElementById("workTime");
-  if (workTimeElement) {
-    const startTime = new Date(); // mulai dari waktu login
-
-    function updateWorkTime() {
-      const now = new Date();
-      const elapsed = new Date(now - startTime);
-      const hours = String(elapsed.getUTCHours()).padStart(2, "0");
-      const minutes = String(elapsed.getUTCMinutes()).padStart(2, "0");
-      const seconds = String(elapsed.getUTCSeconds()).padStart(2, "0");
-      workTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
-    }
-
-    updateWorkTime();
-    setInterval(updateWorkTime, 1000);
-  }
 });
+
